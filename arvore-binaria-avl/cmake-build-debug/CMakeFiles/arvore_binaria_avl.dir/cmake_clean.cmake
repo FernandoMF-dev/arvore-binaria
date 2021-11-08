@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/arvore_binaria_avl.dir/Aluno.c.o"
   "CMakeFiles/arvore_binaria_avl.dir/main.c.o"
   "arvore_binaria_avl"
   "arvore_binaria_avl.pdb"

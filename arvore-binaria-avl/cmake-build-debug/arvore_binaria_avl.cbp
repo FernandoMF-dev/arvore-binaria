@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Aluno.c">
+			<Option target="arvore_binaria_avl"/>
+		</Unit>
+		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h">
+			<Option target="arvore_binaria_avl"/>
+		</Unit>
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/main.c">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>

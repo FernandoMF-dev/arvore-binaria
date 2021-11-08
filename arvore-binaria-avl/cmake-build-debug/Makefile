@@ -129,6 +129,30 @@ arvore_binaria_avl/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/build
 .PHONY : arvore_binaria_avl/fast
 
+Aluno.o: Aluno.c.o
+.PHONY : Aluno.o
+
+# target to build an object file
+Aluno.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Aluno.c.o
+.PHONY : Aluno.c.o
+
+Aluno.i: Aluno.c.i
+.PHONY : Aluno.i
+
+# target to preprocess a source file
+Aluno.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Aluno.c.i
+.PHONY : Aluno.c.i
+
+Aluno.s: Aluno.c.s
+.PHONY : Aluno.s
+
+# target to generate assembly for a file
+Aluno.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Aluno.c.s
+.PHONY : Aluno.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... arvore_binaria_avl"
+	@echo "... Aluno.o"
+	@echo "... Aluno.i"
+	@echo "... Aluno.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
