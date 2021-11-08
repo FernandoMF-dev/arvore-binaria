@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Aluno.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/Aluno.c.o"
+  "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o"
+  "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Node.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/Node.c.o"
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/main.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

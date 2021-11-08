@@ -153,6 +153,54 @@ Aluno.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Aluno.c.s
 .PHONY : Aluno.c.s
 
+ArvoreBinaria.o: ArvoreBinaria.c.o
+.PHONY : ArvoreBinaria.o
+
+# target to build an object file
+ArvoreBinaria.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o
+.PHONY : ArvoreBinaria.c.o
+
+ArvoreBinaria.i: ArvoreBinaria.c.i
+.PHONY : ArvoreBinaria.i
+
+# target to preprocess a source file
+ArvoreBinaria.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.i
+.PHONY : ArvoreBinaria.c.i
+
+ArvoreBinaria.s: ArvoreBinaria.c.s
+.PHONY : ArvoreBinaria.s
+
+# target to generate assembly for a file
+ArvoreBinaria.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.s
+.PHONY : ArvoreBinaria.c.s
+
+Node.o: Node.c.o
+.PHONY : Node.o
+
+# target to build an object file
+Node.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Node.c.o
+.PHONY : Node.c.o
+
+Node.i: Node.c.i
+.PHONY : Node.i
+
+# target to preprocess a source file
+Node.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Node.c.i
+.PHONY : Node.c.i
+
+Node.s: Node.c.s
+.PHONY : Node.s
+
+# target to generate assembly for a file
+Node.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Node.c.s
+.PHONY : Node.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -189,6 +237,12 @@ help:
 	@echo "... Aluno.o"
 	@echo "... Aluno.i"
 	@echo "... Aluno.s"
+	@echo "... ArvoreBinaria.o"
+	@echo "... ArvoreBinaria.i"
+	@echo "... ArvoreBinaria.s"
+	@echo "... Node.o"
+	@echo "... Node.i"
+	@echo "... Node.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
