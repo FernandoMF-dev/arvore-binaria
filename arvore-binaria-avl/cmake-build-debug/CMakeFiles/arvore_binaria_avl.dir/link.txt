@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/arvore_binaria_avl.dir/main.c.o -o arvore_binaria_avl 
