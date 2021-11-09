@@ -50,12 +50,12 @@ void printNode(Node *node) {
     printAluno(node->value);
 }
 
-int getHeight(Node *node) {
+int getHeightNode(Node *node) {
     if (node == NULL) {
         return -1;
     }
 
-    return getMaxInt(getHeight(node->left), getHeight(node->right)) + 1;
+    return getMaxInt(getHeightNode(node->left), getHeightNode(node->right)) + 1;
 }
 
 void updateChargeFactor(Node *node) {

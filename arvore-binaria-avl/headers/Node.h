@@ -26,7 +26,7 @@ int compareNodeByKey(Node *node, char *key);
 
 void printNode(Node *node);
 
-int getHeight(Node *node);
+int getHeightNode(Node *node);
 
 void updateChargeFactor(Node *node);
 
