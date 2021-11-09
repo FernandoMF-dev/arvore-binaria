@@ -14,8 +14,6 @@ typedef struct ArvoreBinaria {
 
 ArvoreBinaria *newArvoreBinaria(char *label);
 
-int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria);
-
 void insertArvoreBinaria(ArvoreBinaria *arvoreBinaria, Aluno *value);
 
 Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key);
@@ -23,6 +21,8 @@ Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key);
 void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key);
 
 void removeArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key);
+
+int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria);
 
 void clearArvoreBinaria(ArvoreBinaria *arvoreBinaria);
 
