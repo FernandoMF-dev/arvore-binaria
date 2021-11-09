@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Aluno.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/Aluno.c.o"
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o"
+  "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/FuncaoUtils.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.o"
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Node.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/Node.c.o"
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/main.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/main.c.o"
   )

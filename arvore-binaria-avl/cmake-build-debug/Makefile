@@ -177,6 +177,30 @@ ArvoreBinaria.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.s
 .PHONY : ArvoreBinaria.c.s
 
+FuncaoUtils.o: FuncaoUtils.c.o
+.PHONY : FuncaoUtils.o
+
+# target to build an object file
+FuncaoUtils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.o
+.PHONY : FuncaoUtils.c.o
+
+FuncaoUtils.i: FuncaoUtils.c.i
+.PHONY : FuncaoUtils.i
+
+# target to preprocess a source file
+FuncaoUtils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.i
+.PHONY : FuncaoUtils.c.i
+
+FuncaoUtils.s: FuncaoUtils.c.s
+.PHONY : FuncaoUtils.s
+
+# target to generate assembly for a file
+FuncaoUtils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.s
+.PHONY : FuncaoUtils.c.s
+
 Node.o: Node.c.o
 .PHONY : Node.o
 
@@ -240,6 +264,9 @@ help:
 	@echo "... ArvoreBinaria.o"
 	@echo "... ArvoreBinaria.i"
 	@echo "... ArvoreBinaria.s"
+	@echo "... FuncaoUtils.o"
+	@echo "... FuncaoUtils.i"
+	@echo "... FuncaoUtils.s"
 	@echo "... Node.o"
 	@echo "... Node.i"
 	@echo "... Node.s"

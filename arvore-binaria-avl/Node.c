@@ -1,5 +1,20 @@
 #include "headers/Node.h"
 
+// =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
+
+int getChargeFactor(Node *node);
+
+// =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
+
+int getChargeFactor(Node *node) {
+    if (node == NULL) {
+        return 0;
+    }
+    return node->chargeFactor;
+}
+
+// =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
+
 Node *newNode() {
     Node *node = (Node *) malloc(sizeof(Node));
 
@@ -33,4 +48,23 @@ int compareNodeByKey(Node *node, char *key) {
 
 void printNode(Node *node) {
     printAluno(node->value);
+}
+
+int getHeight(Node *node) {
+    if (node == NULL) {
+        return -1;
+    }
+
+    return getMaxInt(getHeight(node->left), getHeight(node->right)) + 1;
+}
+
+void updateChargeFactor(Node *node) {
+    if (node->left != NULL) {
+        updateChargeFactor(node->left);
+    }
+    if (node->right != NULL) {
+        updateChargeFactor(node->right);
+    }
+
+    node->chargeFactor = getChargeFactor(node->left) - getChargeFactor(node->right);
 }
