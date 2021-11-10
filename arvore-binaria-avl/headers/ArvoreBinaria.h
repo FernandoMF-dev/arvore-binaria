@@ -32,7 +32,7 @@ void printArvoreBinariaInOrderAsc(ArvoreBinaria *arvoreBinaria);
 
 void printArvoreBinariaInOrderDesc(ArvoreBinaria *arvoreBinaria);
 
-void printArvoreBinariaInPreOrder(ArvoreBinaria *arvoreBinaria);
+void printArvoreBinariaPreOrder(ArvoreBinaria *arvoreBinaria);
 
 void printArvoreBinariaPostOrder(ArvoreBinaria *arvoreBinaria);
 

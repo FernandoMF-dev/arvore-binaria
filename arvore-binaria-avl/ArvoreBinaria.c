@@ -16,6 +16,14 @@ Aluno *searchNode(Node *node, char *key);
 
 void findAndPrintNode(Node *node, char *key, int counter);
 
+void printNodeInOrderAsc(Node *node);
+
+void printNodeInOrderDesc(Node *node);
+
+void printNodePreOrder(Node *node);
+
+void printNodePostOrder(Node *node);
+
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
 void insertRoot(ArvoreBinaria *arvoreBinaria, Aluno *value) {
@@ -75,6 +83,46 @@ void findAndPrintNode(Node *node, char *key, int counter) {
     printf("\nForam comparados %d registros antes de encontrar esse resultado", counter);
 }
 
+void printNodeInOrderAsc(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNodeInOrderAsc(node->left);
+    printNode(node);
+    printNodeInOrderAsc(node->right);
+}
+
+void printNodeInOrderDesc(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNodeInOrderDesc(node->right);
+    printNode(node);
+    printNodeInOrderDesc(node->left);
+}
+
+void printNodePreOrder(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNode(node);
+    printNodePreOrder(node->left);
+    printNodePreOrder(node->right);
+}
+
+void printNodePostOrder(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNodePostOrder(node->left);
+    printNodePostOrder(node->right);
+    printNode(node);
+}
+
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
 
 ArvoreBinaria *newArvoreBinaria(char *label) {
@@ -103,4 +151,24 @@ Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
 
 void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
     findAndPrintNode(arvoreBinaria->root, key, 0);
+}
+
+void printArvoreBinariaInOrderAsc(ArvoreBinaria *arvoreBinaria) {
+    printf("\n%s", arvoreBinaria->label);
+    printNodeInOrderAsc(arvoreBinaria->root);
+}
+
+void printArvoreBinariaInOrderDesc(ArvoreBinaria *arvoreBinaria) {
+    printf("\n%s", arvoreBinaria->label);
+    printNodeInOrderDesc(arvoreBinaria->root);
+}
+
+void printArvoreBinariaPreOrder(ArvoreBinaria *arvoreBinaria) {
+    printf("\n%s", arvoreBinaria->label);
+    printNodePreOrder(arvoreBinaria->root);
+}
+
+void printArvoreBinariaPostOrder(ArvoreBinaria *arvoreBinaria) {
+    printf("\n%s", arvoreBinaria->label);
+    printNodePostOrder(arvoreBinaria->root);
 }
