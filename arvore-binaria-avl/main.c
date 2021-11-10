@@ -6,6 +6,7 @@
 int menu() {
     int choice = 0;
 
+    printf("\n\n=============== MENU ===============\n");
     printf("\n1 - Inserir");
     printf("\n2 - Recuperar");
     printf("\n3 - Busca e Imprimir");

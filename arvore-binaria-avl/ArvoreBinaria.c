@@ -47,9 +47,9 @@ void insertRoot(ArvoreBinaria *arvoreBinaria, Aluno *value) {
 Node *insertNode(Node *node, Aluno *value) {
     int compare = compareNodeByValue(node, value);
 
-    if (compare < 0) {
+    if (compare > 0) {
         node->left = insertNewNode(node->left, value);
-    } else if (compare > 0) {
+    } else if (compare < 0) {
         node->right = insertNewNode(node->right, value);
     }
 
@@ -74,9 +74,9 @@ Aluno *searchNode(Node *node, char *key) {
 
     int compare = compareNodeByKey(node, key);
 
-    if (compare < 0) {
+    if (compare > 0) {
         return searchNode(node->left, key);
-    } else if (compare > 0) {
+    } else if (compare < 0) {
         return searchNode(node->right, key);
     }
     return node->value;
@@ -86,10 +86,12 @@ void findAndPrintNode(Node *node, char *key, int counter) {
     if (node != NULL) {
         int compare = compareNodeByKey(node, key);
 
-        if (compare < 0) {
+        if (compare > 0) {
             return findAndPrintNode(node->left, key, counter + 1);
-        } else if (compare > 0) {
+        } else if (compare < 0) {
             return findAndPrintNode(node->right, key, counter + 1);
+        } else {
+            printNode(node);
         }
     } else {
         printf(ERROR_REGISTRO_NAO_ENCONTRADO);
@@ -105,9 +107,9 @@ Node *removeNode(Node *node, char *key) {
 
     int compare = compareNodeByKey(node, key);
 
-    if (compare < 0) {
+    if (compare > 0) {
         node->left = removeNode(node->left, key);
-    } else if (compare > 0) {
+    } else if (compare < 0) {
         node->right = removeNode(node->right, key);
     } else {
         if (node->left == NULL && node->right == NULL) {
@@ -170,6 +172,7 @@ void printNodeInOrderAsc(Node *node) {
 
     printNodeInOrderAsc(node->left);
     printNode(node);
+    printf("\n");
     printNodeInOrderAsc(node->right);
 }
 
@@ -180,6 +183,7 @@ void printNodeInOrderDesc(Node *node) {
 
     printNodeInOrderDesc(node->right);
     printNode(node);
+    printf("\n");
     printNodeInOrderDesc(node->left);
 }
 
@@ -189,6 +193,7 @@ void printNodePreOrder(Node *node) {
     }
 
     printNode(node);
+    printf("\n");
     printNodePreOrder(node->left);
     printNodePreOrder(node->right);
 }
@@ -201,6 +206,7 @@ void printNodePostOrder(Node *node) {
     printNodePostOrder(node->left);
     printNodePostOrder(node->right);
     printNode(node);
+    printf("\n");
 }
 
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
@@ -290,12 +296,12 @@ void clearArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
 }
 
 void printArvoreBinariaInOrderAsc(ArvoreBinaria *arvoreBinaria) {
-    printf("\n%s", arvoreBinaria->label);
+    printf("\n%s\n", arvoreBinaria->label);
     printNodeInOrderAsc(arvoreBinaria->root);
 }
 
 void printArvoreBinariaInOrderDesc(ArvoreBinaria *arvoreBinaria) {
-    printf("\n%s", arvoreBinaria->label);
+    printf("\n%s\n", arvoreBinaria->label);
     printNodeInOrderDesc(arvoreBinaria->root);
 }
 
