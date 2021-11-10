@@ -16,6 +16,14 @@ Aluno *searchNode(Node *node, char *key);
 
 void findAndPrintNode(Node *node, char *key, int counter);
 
+Node *removeNode(Node *node, char *key);
+
+Node *removeNodeZeroChildren(Node *node);
+
+Node *removeNodeOneChildren(Node *node);
+
+Node *removeNodeTwoChildren(Node *node, char *key);
+
 Aluno *getMaxNode(Node *node);
 
 Aluno *getMinNode(Node *node);
@@ -85,6 +93,58 @@ void findAndPrintNode(Node *node, char *key, int counter) {
         printf(ERROR_REGISTRO_NAO_ENCONTRADO);
     }
     printf("\nForam comparados %d registros antes de encontrar esse resultado", counter);
+}
+
+Node *removeNode(Node *node, char *key) {
+    if (node == NULL) {
+        printf(ERROR_REGISTRO_NAO_ENCONTRADO);
+        return NULL;
+    }
+
+    int compare = compareNodeByKey(node, key);
+
+    if (compare < 0) {
+        node->left = removeNode(node->left, key);
+    } else if (compare > 0) {
+        node->right = removeNode(node->right, key);
+    } else {
+        if (node->left == NULL && node->right == NULL) {
+            node = removeNodeZeroChildren(node);
+        } else if (node->left == NULL || node->right == NULL) {
+            node = removeNodeOneChildren(node);
+        } else {
+            node = removeNodeTwoChildren(node, key);
+        }
+    }
+    return node;
+}
+
+Node *removeNodeZeroChildren(Node *node) {
+    free(node);
+    return NULL;
+}
+
+Node *removeNodeOneChildren(Node *node) {
+    Node *aux = node->left != NULL ? node->left : node->right;
+
+    free(node);
+
+    return aux;
+}
+
+Node *removeNodeTwoChildren(Node *node, char *key) {
+    Node *aux = node->left;
+    Aluno *value = node->value;
+
+    while (aux->right != NULL) {
+        aux = aux->right;
+    }
+
+    node->value = aux->value;
+    aux->value = value;
+    node->left = removeNode(node->left, key);
+
+    return node;
 }
 
 Aluno *getMaxNode(Node *node) {
@@ -165,6 +225,10 @@ Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
 
 void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
     findAndPrintNode(arvoreBinaria->root, key, 0);
+}
+
+void removeArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
+    arvoreBinaria->root = removeNode(arvoreBinaria->root, key);
 }
 
 int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
