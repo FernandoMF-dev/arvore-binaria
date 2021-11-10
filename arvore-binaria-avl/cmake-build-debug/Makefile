@@ -177,6 +177,30 @@ ArvoreBinaria.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.s
 .PHONY : ArvoreBinaria.c.s
 
+ControleArquivoAluno.o: ControleArquivoAluno.c.o
+.PHONY : ControleArquivoAluno.o
+
+# target to build an object file
+ControleArquivoAluno.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.o
+.PHONY : ControleArquivoAluno.c.o
+
+ControleArquivoAluno.i: ControleArquivoAluno.c.i
+.PHONY : ControleArquivoAluno.i
+
+# target to preprocess a source file
+ControleArquivoAluno.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.i
+.PHONY : ControleArquivoAluno.c.i
+
+ControleArquivoAluno.s: ControleArquivoAluno.c.s
+.PHONY : ControleArquivoAluno.s
+
+# target to generate assembly for a file
+ControleArquivoAluno.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.s
+.PHONY : ControleArquivoAluno.c.s
+
 FuncaoUtils.o: FuncaoUtils.c.o
 .PHONY : FuncaoUtils.o
 
@@ -264,6 +288,9 @@ help:
 	@echo "... ArvoreBinaria.o"
 	@echo "... ArvoreBinaria.i"
 	@echo "... ArvoreBinaria.s"
+	@echo "... ControleArquivoAluno.o"
+	@echo "... ControleArquivoAluno.i"
+	@echo "... ControleArquivoAluno.s"
 	@echo "... FuncaoUtils.o"
 	@echo "... FuncaoUtils.i"
 	@echo "... FuncaoUtils.s"

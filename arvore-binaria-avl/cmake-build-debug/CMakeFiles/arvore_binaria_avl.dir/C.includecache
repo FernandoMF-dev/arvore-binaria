@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c
+headers/ArvoreBinaria.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
+stdio.h
+-
+stdlib.h
+-
+Node.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
+Aluno.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
+stdio.h
+-
+stdlib.h
+-
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
+stdio.h
+-
+stdlib.h
+-
+Aluno.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
+FuncaoUtils.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
+
