@@ -247,6 +247,11 @@ Aluno *getMinArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
     return getMaxNode(arvoreBinaria->root);
 }
 
+void clearArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    clearNode(arvoreBinaria->root);
+    arvoreBinaria->root = NULL;
+}
+
 void printArvoreBinariaInOrderAsc(ArvoreBinaria *arvoreBinaria) {
     printf("\n%s", arvoreBinaria->label);
     printNodeInOrderAsc(arvoreBinaria->root);

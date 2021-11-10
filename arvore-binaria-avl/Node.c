@@ -80,3 +80,13 @@ void updateChargeFactor(Node *node) {
 
     node->chargeFactor = getChargeFactor(node->left) - getChargeFactor(node->right);
 }
+
+void clearNode(Node *node) {
+    if (node->left != NULL) {
+        clearNode(node->left);
+    }
+    if (node->right != NULL) {
+        clearNode(node->right);
+    }
+    free(node);
+}
