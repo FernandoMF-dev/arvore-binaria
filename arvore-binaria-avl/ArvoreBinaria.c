@@ -16,6 +16,10 @@ Aluno *searchNode(Node *node, char *key);
 
 void findAndPrintNode(Node *node, char *key, int counter);
 
+Aluno *getMaxNode(Node *node);
+
+Aluno *getMinNode(Node *node);
+
 void printNodeInOrderAsc(Node *node);
 
 void printNodeInOrderDesc(Node *node);
@@ -83,6 +87,20 @@ void findAndPrintNode(Node *node, char *key, int counter) {
     printf("\nForam comparados %d registros antes de encontrar esse resultado", counter);
 }
 
+Aluno *getMaxNode(Node *node) {
+    if (node->right == NULL) {
+        return node->value;
+    }
+    return getMaxNode(node->right);
+}
+
+Aluno *getMinNode(Node *node) {
+    if (node->left == NULL) {
+        return node->left;
+    }
+    return getMinNode(node->left);
+}
+
 void printNodeInOrderAsc(Node *node) {
     if (node == NULL) {
         return;
@@ -141,16 +159,24 @@ void insertArvoreBinaria(ArvoreBinaria *arvoreBinaria, Aluno *value) {
     arvoreBinaria->root = insertNode(arvoreBinaria->root, value);
 }
 
-int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    return getHeightNode(arvoreBinaria->root);
-}
-
 Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
     return searchNode(arvoreBinaria->root, key);
 }
 
 void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
     findAndPrintNode(arvoreBinaria->root, key, 0);
+}
+
+int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    return getHeightNode(arvoreBinaria->root);
+}
+
+Aluno *getMaxArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    return getMaxNode(arvoreBinaria->root);
+}
+
+Aluno *getMinArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    return getMaxNode(arvoreBinaria->root);
 }
 
 void printArvoreBinariaInOrderAsc(ArvoreBinaria *arvoreBinaria) {

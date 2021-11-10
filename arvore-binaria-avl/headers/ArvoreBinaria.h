@@ -24,6 +24,10 @@ void removeArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key);
 
 int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria);
 
+Aluno *getMaxArvoreBinaria(ArvoreBinaria *arvoreBinaria);
+
+Aluno *getMinArvoreBinaria(ArvoreBinaria *arvoreBinaria);
+
 void clearArvoreBinaria(ArvoreBinaria *arvoreBinaria);
 
 void cloneArvoreBinaria(ArvoreBinaria *target, ArvoreBinaria *source);
