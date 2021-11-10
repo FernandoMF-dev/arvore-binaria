@@ -235,6 +235,10 @@ int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
     return getHeightNode(arvoreBinaria->root);
 }
 
+int getSizeArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    return getSizeNode(arvoreBinaria->root);
+}
+
 Aluno *getMaxArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
     return getMaxNode(arvoreBinaria->root);
 }

@@ -28,6 +28,8 @@ void printNode(Node *node);
 
 int getHeightNode(Node *node);
 
+int getSizeNode(Node *node);
+
 void updateChargeFactor(Node *node);
 
 #endif //ARVORE_BINARIA_AVL_NODE_H

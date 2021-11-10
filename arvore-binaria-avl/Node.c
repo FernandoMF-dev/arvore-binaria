@@ -58,6 +58,18 @@ int getHeightNode(Node *node) {
     return getMaxInt(getHeightNode(node->left), getHeightNode(node->right)) + 1;
 }
 
+int getSizeNode(Node *node) {
+    int size = 0;
+
+    if (node != NULL) {
+        size += getSizeNode(node->left);
+        size += getSizeNode(node->right);
+        size++;
+    }
+
+    return size;
+}
+
 void updateChargeFactor(Node *node) {
     if (node->left != NULL) {
         updateChargeFactor(node->left);
