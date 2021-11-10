@@ -1,5 +1,9 @@
 #include "headers/Node.h"
 
+// =-=-=-=-= CONSTANTES =-=-=-=-=
+
+#define ERROR_FALHA_ALOCACAO "\n\tERRO: Erro durante alocação de memória!\n"
+
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
 int getChargeFactor(Node *node);
@@ -18,6 +22,11 @@ int getChargeFactor(Node *node) {
 Node *newNode() {
     Node *node = (Node *) malloc(sizeof(Node));
 
+    if (node == NULL) {
+        printf(ERROR_FALHA_ALOCACAO);
+        return NULL;
+    }
+
     node->chargeFactor = 0;
     node->value = NULL;
     node->left = NULL;
@@ -29,7 +38,9 @@ Node *newNode() {
 Node *readNode(Aluno *value) {
     Node *node = newNode();
 
-    node->value = value;
+    if (node != NULL) {
+        node->value = value;
+    }
 
     return node;
 }

@@ -2,6 +2,8 @@
 
 // =-=-=-=-= CONSTANTES =-=-=-=-=
 
+#define ERROR_FALHA_ALOCACAO "\n\tERRO: Erro durante alocação de memória!\n"
+#define ERROR_ARVORE_VAZIA "\n\tERRO: A ArvoreBinaria está vazia!\n"
 #define ERROR_REGISTRO_NAO_ENCONTRADO "\n\tERRO: Registro não encontrado!\n"
 
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
@@ -206,6 +208,11 @@ void printNodePostOrder(Node *node) {
 ArvoreBinaria *newArvoreBinaria(char *label) {
     ArvoreBinaria *arvoreBinaria = (ArvoreBinaria *) malloc(sizeof(ArvoreBinaria));
 
+    if (arvoreBinaria == NULL) {
+        printf(ERROR_FALHA_ALOCACAO);
+        return NULL;
+    }
+
     arvoreBinaria->label = label;
     arvoreBinaria->root = NULL;
 
@@ -220,34 +227,64 @@ void insertArvoreBinaria(ArvoreBinaria *arvoreBinaria, Aluno *value) {
 }
 
 Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
+    if (arvoreBinaria->root == NULL) {
+        printf(ERROR_ARVORE_VAZIA);
+        return NULL;
+    }
     return searchNode(arvoreBinaria->root, key);
 }
 
 void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
+    if (arvoreBinaria->root == NULL) {
+        printf(ERROR_ARVORE_VAZIA);
+        return;
+    }
     findAndPrintNode(arvoreBinaria->root, key, 0);
 }
 
 void removeArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
+    if (arvoreBinaria->root == NULL) {
+        printf(ERROR_ARVORE_VAZIA);
+        return;
+    }
     arvoreBinaria->root = removeNode(arvoreBinaria->root, key);
 }
 
 int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    if (arvoreBinaria->root == NULL) {
+        printf(ERROR_ARVORE_VAZIA);
+    }
     return getHeightNode(arvoreBinaria->root);
 }
 
 int getSizeArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    if (arvoreBinaria->root == NULL) {
+        printf(ERROR_ARVORE_VAZIA);
+    }
     return getSizeNode(arvoreBinaria->root);
 }
 
 Aluno *getMaxArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    if (arvoreBinaria->root == NULL) {
+        printf(ERROR_ARVORE_VAZIA);
+        return NULL;
+    }
     return getMaxNode(arvoreBinaria->root);
 }
 
 Aluno *getMinArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    return getMaxNode(arvoreBinaria->root);
+    if (arvoreBinaria->root == NULL) {
+        printf(ERROR_ARVORE_VAZIA);
+        return NULL;
+    }
+    return getMinNode(arvoreBinaria->root);
 }
 
 void clearArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    if (arvoreBinaria->root == NULL) {
+        return;
+    }
+
     clearNode(arvoreBinaria->root);
     arvoreBinaria->root = NULL;
 }
