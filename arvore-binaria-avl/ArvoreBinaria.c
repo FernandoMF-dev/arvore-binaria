@@ -156,7 +156,7 @@ Aluno *getMaxNode(Node *node) {
 
 Aluno *getMinNode(Node *node) {
     if (node->left == NULL) {
-        return node->left;
+        return node->value;
     }
     return getMinNode(node->left);
 }
@@ -270,4 +270,10 @@ void printArvoreBinariaPreOrder(ArvoreBinaria *arvoreBinaria) {
 void printArvoreBinariaPostOrder(ArvoreBinaria *arvoreBinaria) {
     printf("\n%s", arvoreBinaria->label);
     printNodePostOrder(arvoreBinaria->root);
+}
+
+void printStatisticsArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
+    printf("\n%s", arvoreBinaria->label);
+    printf("\nAltura: %d", getHeightArvoreBinaria(arvoreBinaria));
+    printf("\nTamanho: %d", getSizeArvoreBinaria(arvoreBinaria));
 }

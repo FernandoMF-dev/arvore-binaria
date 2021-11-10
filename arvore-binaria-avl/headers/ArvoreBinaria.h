@@ -42,4 +42,6 @@ void printArvoreBinariaPreOrder(ArvoreBinaria *arvoreBinaria);
 
 void printArvoreBinariaPostOrder(ArvoreBinaria *arvoreBinaria);
 
+void printStatisticsArvoreBinaria(ArvoreBinaria *arvoreBinaria);
+
 #endif //ARVORE_BINARIA_AVL_ARVOREBINARIA_H
