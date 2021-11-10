@@ -1,6 +1,6 @@
 #include "headers/FuncaoUtils.h"
 
-int maxInt(int value1, int value2) {
+int getMaxInt(int value1, int value2) {
     if (value1 > value2) {
         return value1;
     }
