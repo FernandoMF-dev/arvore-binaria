@@ -42,10 +42,16 @@ void printNodePostOrder(Node *node);
 
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
+/*
+ * Insere um registro na raiz de uma ArvoreBinaria
+ * */
 void insertRoot(ArvoreBinaria *arvoreBinaria, Aluno *value) {
     arvoreBinaria->root = readNode(value);
 }
 
+/*
+ * Verifica se um valor deve ser inserido a esquerda ou a direita de um Node
+ * */
 Node *insertNode(Node *node, Aluno *value) {
     int compare = compareNodeByValue(node, value);
 
@@ -58,6 +64,9 @@ Node *insertNode(Node *node, Aluno *value) {
     return node;
 }
 
+/*
+ * Cria e retorna um Node com o valor passado para ser substituído por um Node nulo
+ * */
 Node *insertNewNode(Node *node, Aluno *value) {
     if (node != NULL) {
         node = insertNode(node, value);
@@ -68,6 +77,12 @@ Node *insertNewNode(Node *node, Aluno *value) {
     return node;
 }
 
+/*
+ * Busca um valor em um Node e nos seus filhos de acordo com uma chave (key).
+ *
+ * Se encontrar, retorna os dados do valor.
+ * Se não, retorna NULL.
+ * */
 Aluno *searchNode(Node *node, char *key) {
     if (node == NULL) {
         printf(ERROR_REGISTRO_NAO_ENCONTRADO);
@@ -84,6 +99,12 @@ Aluno *searchNode(Node *node, char *key) {
     return node->value;
 }
 
+/*
+ * Busca um registro em um node e nos seus filhos e imprime:
+ *
+ * - Os dados do registro;
+ * - O número de registros que foram verificados antes de o alvo ser encontrado.
+ * */
 void findAndPrintNode(Node *node, char *key, int counter) {
     if (node != NULL) {
         int compare = compareNodeByKey(node, key);
@@ -101,6 +122,9 @@ void findAndPrintNode(Node *node, char *key, int counter) {
     printf("\nForam comparados %d registros antes de encontrar esse resultado", counter);
 }
 
+/*
+ * Apaga um Node de acordo com uma chave (key).
+ * */
 Node *removeNode(Node *node, char *key) {
     if (node == NULL) {
         printf(ERROR_REGISTRO_NAO_ENCONTRADO);
@@ -125,11 +149,17 @@ Node *removeNode(Node *node, char *key) {
     return node;
 }
 
+/*
+ * Apaga um Node que não possua qualquer filho
+ * */
 Node *removeNodeZeroChildren(Node *node) {
     free(node);
     return NULL;
 }
 
+/*
+ * Apaga um Node que possua um e apenas um filho
+ * */
 Node *removeNodeOneChildren(Node *node) {
     Node *aux = node->left != NULL ? node->left : node->right;
 
@@ -138,6 +168,9 @@ Node *removeNodeOneChildren(Node *node) {
     return aux;
 }
 
+/*
+ * Apaga um Node que possua dois filhos
+ * */
 Node *removeNodeTwoChildren(Node *node, char *key) {
     Node *aux = node->left;
     Aluno *value = node->value;
@@ -153,6 +186,9 @@ Node *removeNodeTwoChildren(Node *node, char *key) {
     return node;
 }
 
+/*
+ * Busca e retorna o maior valor numa sub árvore
+ * */
 Aluno *getMaxNode(Node *node) {
     if (node->right == NULL) {
         return node->value;
@@ -160,6 +196,9 @@ Aluno *getMaxNode(Node *node) {
     return getMaxNode(node->right);
 }
 
+/*
+ * Busca e retorna o menor valor numa sub árvore
+ * */
 Aluno *getMinNode(Node *node) {
     if (node->left == NULL) {
         return node->value;
@@ -167,6 +206,9 @@ Aluno *getMinNode(Node *node) {
     return getMinNode(node->left);
 }
 
+/*
+ * Insere o valor de um Node e de seus filhos numa ArvoreBinaria.
+ * */
 void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source) {
     if (source == NULL) {
         return;
@@ -177,6 +219,10 @@ void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source) {
     cloneNodeIntoArvoreBinaria(target, source->right);
 }
 
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Em-Ordem Crescente"
+ * */
 void printNodeInOrderAsc(Node *node) {
     if (node == NULL) {
         return;
@@ -188,6 +234,10 @@ void printNodeInOrderAsc(Node *node) {
     printNodeInOrderAsc(node->right);
 }
 
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Em-Ordem Decrescente"
+ * */
 void printNodeInOrderDesc(Node *node) {
     if (node == NULL) {
         return;
@@ -199,6 +249,10 @@ void printNodeInOrderDesc(Node *node) {
     printNodeInOrderDesc(node->left);
 }
 
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Pré-Ordem"
+ * */
 void printNodePreOrder(Node *node) {
     if (node == NULL) {
         return;
@@ -210,6 +264,10 @@ void printNodePreOrder(Node *node) {
     printNodePreOrder(node->right);
 }
 
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Pós-Ordem"
+ * */
 void printNodePostOrder(Node *node) {
     if (node == NULL) {
         return;
@@ -279,7 +337,7 @@ void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
 }
 
 /*
- * Remove um registro da Hash de acordo com uma chave (key).
+ * Remove um registro da ArvoreBinaria de acordo com uma chave (key).
  * */
 void removeArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
     if (arvoreBinaria->root == NULL) {
