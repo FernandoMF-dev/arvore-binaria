@@ -30,6 +30,8 @@ Aluno *getMaxNode(Node *node);
 
 Aluno *getMinNode(Node *node);
 
+void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source);
+
 void printNodeInOrderAsc(Node *node);
 
 void printNodeInOrderDesc(Node *node);
@@ -165,6 +167,16 @@ Aluno *getMinNode(Node *node) {
     return getMinNode(node->left);
 }
 
+void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source) {
+    if (source == NULL) {
+        return;
+    }
+
+    insertArvoreBinaria(target, source->value);
+    cloneNodeIntoArvoreBinaria(target, source->left);
+    cloneNodeIntoArvoreBinaria(target, source->right);
+}
+
 void printNodeInOrderAsc(Node *node) {
     if (node == NULL) {
         return;
@@ -293,6 +305,10 @@ void clearArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
 
     clearNode(arvoreBinaria->root);
     arvoreBinaria->root = NULL;
+}
+
+void cloneArvoreBinaria(ArvoreBinaria *target, ArvoreBinaria *source) {
+    cloneNodeIntoArvoreBinaria(target, source->root);
 }
 
 void printArvoreBinariaInOrderAsc(ArvoreBinaria *arvoreBinaria) {

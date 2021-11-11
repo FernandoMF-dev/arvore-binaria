@@ -22,6 +22,7 @@ int menu() {
     printf("\n12 - Listar Em Ordem DES");
     printf("\n13 - Listar Pré-Ordem");
     printf("\n14 - Listar Pós-Ordem");
+    printf("\n15 - Clone");
     printf("\n0 - Sair");
 
     printf("\nESCOLHA: ");
@@ -31,7 +32,9 @@ int menu() {
 }
 
 int main() {
-    ArvoreBinaria *arvoreBinaria = readAlunoFromFile(newArvoreBinaria("ArvoreBinaria"));
+//    ArvoreBinaria *arvoreBinaria = readAlunoFromFile(newArvoreBinaria("ArvoreBinaria"));
+    ArvoreBinaria *arvoreBinaria = newArvoreBinaria("ArvoreBinaria");
+    ArvoreBinaria *clone = newArvoreBinaria("Clone");
     char *key = (char *) malloc(64 * sizeof(char));
     int repeat = 1;
 
@@ -39,6 +42,7 @@ int main() {
         switch (menu()) {
             case 0:
                 writeArvoreBinariaOnFile(arvoreBinaria);
+                writeArvoreBinariaOnFile(clone);
                 repeat = 0;
                 break;
             case 1:
@@ -80,18 +84,26 @@ int main() {
                 break;
             case 10:
                 printStatisticsArvoreBinaria(arvoreBinaria);
+                printStatisticsArvoreBinaria(clone);
                 break;
             case 11:
                 printArvoreBinariaInOrderAsc(arvoreBinaria);
+                printArvoreBinariaInOrderAsc(clone);
                 break;
             case 12:
                 printArvoreBinariaInOrderDesc(arvoreBinaria);
+                printArvoreBinariaInOrderDesc(clone);
                 break;
             case 13:
                 printArvoreBinariaPreOrder(arvoreBinaria);
+                printArvoreBinariaPreOrder(clone);
                 break;
             case 14:
                 printArvoreBinariaPostOrder(arvoreBinaria);
+                printArvoreBinariaPostOrder(clone);
+                break;
+            case 15:
+                cloneArvoreBinaria(clone, arvoreBinaria);
                 break;
             default:
                 break;
