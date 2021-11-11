@@ -2,6 +2,7 @@
 
 #include "headers/Aluno.h"
 #include "headers/ArvoreBinaria.h"
+#include "headers/ControleArquivoAluno.h"
 
 int menu() {
     int choice = 0;
@@ -37,6 +38,7 @@ int main() {
     while (repeat) {
         switch (menu()) {
             case 0:
+                writeArvoreBinariaOnFile(arvoreBinaria);
                 repeat = 0;
                 break;
             case 1:

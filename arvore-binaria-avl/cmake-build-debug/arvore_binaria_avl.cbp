@@ -85,9 +85,6 @@
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ControleArquivoAluno.c">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
-		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ControleArquivoAluno.h">
-			<Option target="arvore_binaria_avl"/>
-		</Unit>
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/FuncaoUtils.c">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
@@ -98,6 +95,9 @@
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h">
+			<Option target="arvore_binaria_avl"/>
+		</Unit>
+		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ControleArquivoAluno.h">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h">
