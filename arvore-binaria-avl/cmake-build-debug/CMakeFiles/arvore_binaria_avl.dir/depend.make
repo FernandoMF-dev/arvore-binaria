@@ -10,6 +10,13 @@ CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o: \
  ../headers/ArvoreBinaria.h \
  ../headers/FuncaoUtils.h \
  ../headers/Node.h
+CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.o: \
+ ../ControleArquivoAluno.c \
+ ../headers/Aluno.h \
+ ../headers/ArvoreBinaria.h \
+ ../headers/ControleArquivoAluno.h \
+ ../headers/FuncaoUtils.h \
+ ../headers/Node.h
 CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.o: \
  ../FuncaoUtils.c \
  ../headers/FuncaoUtils.h
@@ -21,6 +28,7 @@ CMakeFiles/arvore_binaria_avl.dir/Node.c.o: \
 CMakeFiles/arvore_binaria_avl.dir/main.c.o: \
  ../headers/Aluno.h \
  ../headers/ArvoreBinaria.h \
+ ../headers/ControleArquivoAluno.h \
  ../headers/FuncaoUtils.h \
  ../headers/Node.h \
  ../main.c

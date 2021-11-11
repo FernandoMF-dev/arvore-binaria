@@ -31,7 +31,7 @@ int menu() {
 }
 
 int main() {
-    ArvoreBinaria *arvoreBinaria = newArvoreBinaria("Árvore Binária");
+    ArvoreBinaria *arvoreBinaria = readAlunoFromFile(newArvoreBinaria("ArvoreBinaria"));
     char *key = (char *) malloc(64 * sizeof(char));
     int repeat = 1;
 

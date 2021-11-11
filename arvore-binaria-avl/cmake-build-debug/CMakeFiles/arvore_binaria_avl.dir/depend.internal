@@ -10,6 +10,13 @@ CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
+CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.o
+ /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ControleArquivoAluno.c
+ /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
+ /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
+ /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ControleArquivoAluno.h
+ /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
+ /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
 CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.o
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/FuncaoUtils.c
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
@@ -21,6 +28,7 @@ CMakeFiles/arvore_binaria_avl.dir/Node.c.o
 CMakeFiles/arvore_binaria_avl.dir/main.c.o
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
+ /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ControleArquivoAluno.h
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
  /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/main.c
