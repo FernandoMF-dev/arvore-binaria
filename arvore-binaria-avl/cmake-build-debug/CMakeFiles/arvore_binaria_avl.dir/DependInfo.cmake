@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Aluno.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/Aluno.c.o"
+  "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreAvl.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/ArvoreAvl.c.o"
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o"
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ControleArquivoAluno.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.o"
   "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/FuncaoUtils.c" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.o"

@@ -153,6 +153,30 @@ Aluno.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Aluno.c.s
 .PHONY : Aluno.c.s
 
+ArvoreAvl.o: ArvoreAvl.c.o
+.PHONY : ArvoreAvl.o
+
+# target to build an object file
+ArvoreAvl.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreAvl.c.o
+.PHONY : ArvoreAvl.c.o
+
+ArvoreAvl.i: ArvoreAvl.c.i
+.PHONY : ArvoreAvl.i
+
+# target to preprocess a source file
+ArvoreAvl.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreAvl.c.i
+.PHONY : ArvoreAvl.c.i
+
+ArvoreAvl.s: ArvoreAvl.c.s
+.PHONY : ArvoreAvl.s
+
+# target to generate assembly for a file
+ArvoreAvl.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/ArvoreAvl.c.s
+.PHONY : ArvoreAvl.c.s
+
 ArvoreBinaria.o: ArvoreBinaria.c.o
 .PHONY : ArvoreBinaria.o
 
@@ -285,6 +309,9 @@ help:
 	@echo "... Aluno.o"
 	@echo "... Aluno.i"
 	@echo "... Aluno.s"
+	@echo "... ArvoreAvl.o"
+	@echo "... ArvoreAvl.i"
+	@echo "... ArvoreAvl.s"
 	@echo "... ArvoreBinaria.o"
 	@echo "... ArvoreBinaria.i"
 	@echo "... ArvoreBinaria.s"

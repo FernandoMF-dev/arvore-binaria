@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/arvore_binaria_avl.dir/Aluno.c.o"
+  "CMakeFiles/arvore_binaria_avl.dir/ArvoreAvl.c.o"
   "CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o"
   "CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.o"
   "CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.o"

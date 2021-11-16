@@ -1,14 +1,14 @@
-#include "headers/ArvoreBinaria.h"
+#include "headers/ArvoreAvl.h"
 
 // =-=-=-=-= CONSTANTES =-=-=-=-=
 
 #define ERROR_FALHA_ALOCACAO "\n\tERRO: Erro durante alocação de memória!\n"
-#define ERROR_ARVORE_VAZIA "\n\tERRO: A ArvoreBinaria está vazia!\n"
+#define ERROR_ARVORE_VAZIA "\n\tERRO: A ArvoreAvl está vazia!\n"
 #define ERROR_REGISTRO_NAO_ENCONTRADO "\n\tERRO: Registro não encontrado!\n"
 
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
-void insertRoot(ArvoreBinaria *arvoreBinaria, Aluno *value);
+void insertRoot(ArvoreAvl *arvoreAvl, Aluno *value);
 
 Node *insertNode(Node *node, Aluno *value);
 
@@ -30,7 +30,7 @@ Aluno *getMaxNode(Node *node);
 
 Aluno *getMinNode(Node *node);
 
-void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source);
+void cloneNodeIntoArvoreAvl(ArvoreAvl *target, Node *source);
 
 void printNodeInOrderAsc(Node *node);
 
@@ -43,10 +43,10 @@ void printNodePostOrder(Node *node);
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
 /*
- * Insere um registro na raiz de uma ArvoreBinaria
+ * Insere um registro na raiz de uma ArvoreAvl
  * */
-void insertRoot(ArvoreBinaria *arvoreBinaria, Aluno *value) {
-    arvoreBinaria->root = readNode(value);
+void insertRoot(ArvoreAvl *arvoreAvl, Aluno *value) {
+    arvoreAvl->root = readNode(value);
 }
 
 /*
@@ -207,16 +207,16 @@ Aluno *getMinNode(Node *node) {
 }
 
 /*
- * Insere o valor de um Node e de seus filhos numa ArvoreBinaria.
+ * Insere o valor de um Node e de seus filhos numa ArvoreAvl.
  * */
-void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source) {
+void cloneNodeIntoArvoreAvl(ArvoreAvl *target, Node *source) {
     if (source == NULL) {
         return;
     }
 
-    insertArvoreBinaria(target, source->value);
-    cloneNodeIntoArvoreBinaria(target, source->left);
-    cloneNodeIntoArvoreBinaria(target, source->right);
+    insertArvoreAvl(target, source->value);
+    cloneNodeIntoArvoreAvl(target, source->left);
+    cloneNodeIntoArvoreAvl(target, source->right);
 }
 
 /*
@@ -282,179 +282,179 @@ void printNodePostOrder(Node *node) {
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
 
 /*
- * Inicializa e retorna uma nova instância de ArvoreBinaria.
+ * Inicializa e retorna uma nova instância de ArvoreAvl.
  * */
-ArvoreBinaria *newArvoreBinaria(char *label) {
-    ArvoreBinaria *arvoreBinaria = (ArvoreBinaria *) malloc(sizeof(ArvoreBinaria));
+ArvoreAvl *newArvoreAvl(char *label) {
+    ArvoreAvl *arvoreAvl = (ArvoreAvl *) malloc(sizeof(ArvoreAvl));
 
-    if (arvoreBinaria == NULL) {
+    if (arvoreAvl == NULL) {
         printf(ERROR_FALHA_ALOCACAO);
         return NULL;
     }
 
-    arvoreBinaria->label = label;
-    arvoreBinaria->root = NULL;
+    arvoreAvl->label = label;
+    arvoreAvl->root = NULL;
 
-    return arvoreBinaria;
+    return arvoreAvl;
 }
 
 /*
- * Insere um novo registro numa ArvoreBinaria.
+ * Insere um novo registro numa ArvoreAvl.
  * */
-void insertArvoreBinaria(ArvoreBinaria *arvoreBinaria, Aluno *value) {
-    if (arvoreBinaria->root == NULL) {
-        return insertRoot(arvoreBinaria, value);
+void insertArvoreAvl(ArvoreAvl *arvoreAvl, Aluno *value) {
+    if (arvoreAvl->root == NULL) {
+        return insertRoot(arvoreAvl, value);
     }
-    arvoreBinaria->root = insertNode(arvoreBinaria->root, value);
+    arvoreAvl->root = insertNode(arvoreAvl->root, value);
 }
 
 /*
- * Busca um registro na ArvoreBinaria de acordo com uma chave (key).
+ * Busca um registro na ArvoreAvl de acordo com uma chave (key).
  *
  * Se encontrar, retorna os dados do registro.
  * Se não, retorna NULL.
  * */
-Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
-    if (arvoreBinaria->root == NULL) {
+Aluno *searchArvoreAvl(ArvoreAvl *arvoreAvl, char *key) {
+    if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
         return NULL;
     }
-    return searchNode(arvoreBinaria->root, key);
+    return searchNode(arvoreAvl->root, key);
 }
 
 /*
- * Busca um registro na ArvoreBinaria e imprime os seguintes dados sobre ele:
+ * Busca um registro na ArvoreAvl e imprime os seguintes dados sobre ele:
  *
  * - Os dados do registro;
  * - O número de registros que foram veríficados antes do alvo ser encontrado.
  * */
-void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
-    if (arvoreBinaria->root == NULL) {
+void findAndPrintArvoreAvl(ArvoreAvl *arvoreAvl, char *key) {
+    if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
         return;
     }
-    findAndPrintNode(arvoreBinaria->root, key, 0);
+    findAndPrintNode(arvoreAvl->root, key, 0);
 }
 
 /*
- * Remove um registro da ArvoreBinaria de acordo com uma chave (key).
+ * Remove um registro da ArvoreAvl de acordo com uma chave (key).
  * */
-void removeArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
-    if (arvoreBinaria->root == NULL) {
+void removeArvoreAvl(ArvoreAvl *arvoreAvl, char *key) {
+    if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
         return;
     }
-    arvoreBinaria->root = removeNode(arvoreBinaria->root, key);
+    arvoreAvl->root = removeNode(arvoreAvl->root, key);
 }
 
 /*
- * Calcula e retorna a altura de uma ArvoreBinaria com base no seus filho.
- * O valor inicial é 0, então uma ArvoreBinaria com apenas um Node retornará 0.
- * Caso a ArvoreBinaria não possua qualquer registro, retorna -1
+ * Calcula e retorna a altura de uma ArvoreAvl com base no seus filho.
+ * O valor inicial é 0, então uma ArvoreAvl com apenas um Node retornará 0.
+ * Caso a ArvoreAvl não possua qualquer registro, retorna -1
  * */
-int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    if (arvoreBinaria->root == NULL) {
+int getHeightArvoreAvl(ArvoreAvl *arvoreAvl) {
+    if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
     }
-    return getHeightNode(arvoreBinaria->root);
+    return getHeightNode(arvoreAvl->root);
 }
 
 /*
- * Calcula e retorna a quantidade de registros numa ArvoreBinaria.
+ * Calcula e retorna a quantidade de registros numa ArvoreAvl.
  * */
-int getSizeArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    if (arvoreBinaria->root == NULL) {
+int getSizeArvoreAvl(ArvoreAvl *arvoreAvl) {
+    if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
     }
-    return getSizeNode(arvoreBinaria->root);
+    return getSizeNode(arvoreAvl->root);
 }
 
 /*
- * Retorna o maior registro numa ArvoreBinaria.
+ * Retorna o maior registro numa ArvoreAvl.
  * */
-Aluno *getMaxArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    if (arvoreBinaria->root == NULL) {
+Aluno *getMaxArvoreAvl(ArvoreAvl *arvoreAvl) {
+    if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
         return NULL;
     }
-    return getMaxNode(arvoreBinaria->root);
+    return getMaxNode(arvoreAvl->root);
 }
 
 /*
- * Retorna o menor registro numa ArvoreBinaria.
+ * Retorna o menor registro numa ArvoreAvl.
  * */
-Aluno *getMinArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    if (arvoreBinaria->root == NULL) {
+Aluno *getMinArvoreAvl(ArvoreAvl *arvoreAvl) {
+    if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
         return NULL;
     }
-    return getMinNode(arvoreBinaria->root);
+    return getMinNode(arvoreAvl->root);
 }
 
 /*
- * Remove todos os registros numa ArvoreBinaria
+ * Remove todos os registros numa ArvoreAvl
  * */
-void clearArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    if (arvoreBinaria->root == NULL) {
+void clearArvoreAvl(ArvoreAvl *arvoreAvl) {
+    if (arvoreAvl->root == NULL) {
         return;
     }
 
-    clearNode(arvoreBinaria->root);
-    arvoreBinaria->root = NULL;
+    clearNode(arvoreAvl->root);
+    arvoreAvl->root = NULL;
 }
 
 /*
- * Lê todos os registros da ArvoreBinaria 'source' e os insere na ArvoreBinaria 'target'.
+ * Lê todos os registros da ArvoreAvl 'source' e os insere na ArvoreAvl 'target'.
  * */
-void cloneArvoreBinaria(ArvoreBinaria *target, ArvoreBinaria *source) {
-    cloneNodeIntoArvoreBinaria(target, source->root);
+void cloneArvoreAvl(ArvoreAvl *target, ArvoreAvl *source) {
+    cloneNodeIntoArvoreAvl(target, source->root);
 }
 
 /*
- * Imprime uma ArvoreBinaria.
+ * Imprime uma ArvoreAvl.
  * Imprime os registros dela com ordenação "Em-Ordem Crescente"
  * */
-void printArvoreBinariaInOrderAsc(ArvoreBinaria *arvoreBinaria) {
-    printf("\n%s\n", arvoreBinaria->label);
-    printNodeInOrderAsc(arvoreBinaria->root);
+void printArvoreAvlInOrderAsc(ArvoreAvl *arvoreAvl) {
+    printf("\n%s\n", arvoreAvl->label);
+    printNodeInOrderAsc(arvoreAvl->root);
 }
 
 /*
- * Imprime uma ArvoreBinaria.
+ * Imprime uma ArvoreAvl.
  * Imprime os registros dela com ordenação "Em-Ordem Decrescente"
  * */
-void printArvoreBinariaInOrderDesc(ArvoreBinaria *arvoreBinaria) {
-    printf("\n%s\n", arvoreBinaria->label);
-    printNodeInOrderDesc(arvoreBinaria->root);
+void printArvoreAvlInOrderDesc(ArvoreAvl *arvoreAvl) {
+    printf("\n%s\n", arvoreAvl->label);
+    printNodeInOrderDesc(arvoreAvl->root);
 }
 
 /*
- * Imprime uma ArvoreBinaria.
+ * Imprime uma ArvoreAvl.
  * Imprime os registros dela com ordenação "Pré-Ordem"
  * */
-void printArvoreBinariaPreOrder(ArvoreBinaria *arvoreBinaria) {
-    printf("\n%s", arvoreBinaria->label);
-    printNodePreOrder(arvoreBinaria->root);
+void printArvoreAvlPreOrder(ArvoreAvl *arvoreAvl) {
+    printf("\n%s", arvoreAvl->label);
+    printNodePreOrder(arvoreAvl->root);
 }
 
 /*
- * Imprime uma ArvoreBinaria.
+ * Imprime uma ArvoreAvl.
  * Imprime os registros dela com ordenação "Pós-Ordem"
  * */
-void printArvoreBinariaPostOrder(ArvoreBinaria *arvoreBinaria) {
-    printf("\n%s", arvoreBinaria->label);
-    printNodePostOrder(arvoreBinaria->root);
+void printArvoreAvlPostOrder(ArvoreAvl *arvoreAvl) {
+    printf("\n%s", arvoreAvl->label);
+    printNodePostOrder(arvoreAvl->root);
 }
 
 /*
- * Imprime os seguintes dados de uma ArvoreBinaria:
+ * Imprime os seguintes dados de uma ArvoreAvl:
  *
  * - Nome;
  * - Altura;
  * - Número de registros.
  * */
-void printStatisticsArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
-    printf("\n%s", arvoreBinaria->label);
-    printf("\nAltura: %d", getHeightArvoreBinaria(arvoreBinaria));
-    printf("\nTamanho: %d", getSizeArvoreBinaria(arvoreBinaria));
+void printStatisticsArvoreAvl(ArvoreAvl *arvoreAvl) {
+    printf("\n%s", arvoreAvl->label);
+    printf("\nAltura: %d", getHeightArvoreAvl(arvoreAvl));
+    printf("\nTamanho: %d", getSizeArvoreAvl(arvoreAvl));
 }
