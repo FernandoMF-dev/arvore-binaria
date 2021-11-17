@@ -44,6 +44,10 @@ Node *rotateLeft(Node *node);
 
 Node *rotateRight(Node *node);
 
+Node *rotateLeftRight(Node *node);
+
+Node *rotateRightLeft(Node *node);
+
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
 /*
@@ -299,6 +303,16 @@ Node *rotateRight(Node *node) {
     aux->left = node;
 
     return aux;
+}
+
+Node *rotateLeftRight(Node *node) {
+    node->left = rotateRight(node->left);
+    return rotateLeft(node);
+}
+
+Node *rotateRightLeft(Node *node) {
+    node->right = rotateLeft(node->right);
+    return rotateRight(node);
 }
 
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
