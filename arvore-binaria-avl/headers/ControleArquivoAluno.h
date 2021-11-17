@@ -5,12 +5,15 @@
 #include "Aluno.h"
 #include "Node.h"
 #include "ArvoreBinaria.h"
+#include "ArvoreAvl.h"
 
 #ifndef ARVORE_BINARIA_AVL_CONTROLEARQUIVOALUNO_H
 #define ARVORE_BINARIA_AVL_CONTROLEARQUIVOALUNO_H
 
-ArvoreBinaria *readAlunoFromFile(ArvoreBinaria *arvoreBinaria);
+ArvoreBinaria *readAlunoFromFile(ArvoreBinaria *arvoreBinaria, ArvoreAvl *arvoreAvl);
 
 void writeArvoreBinariaOnFile(ArvoreBinaria *arvoreBinaria);
+
+void writeArvoreAvlOnFile(ArvoreAvl *arvoreAvl);
 
 #endif //ARVORE_BINARIA_AVL_CONTROLEARQUIVOALUNO_H

@@ -19,6 +19,7 @@ CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o: \
 CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.o: \
  ../ControleArquivoAluno.c \
  ../headers/Aluno.h \
+ ../headers/ArvoreAvl.h \
  ../headers/ArvoreBinaria.h \
  ../headers/ControleArquivoAluno.h \
  ../headers/FuncaoUtils.h \

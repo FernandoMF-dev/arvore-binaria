@@ -17,13 +17,29 @@
 
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
+char *getOutputFileName(char *baseName);
+
 Aluno *readNextAluno(FILE *fp);
 
 void writeAlunosOnFile(FILE *fp, Node *node);
 
 void writeCurrentAlunoOnFile(FILE *fp, Node *node);
 
+
+
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
+
+/*
+ * Monta e retorna o nome completo do arquivo de saída de dados
+ * */
+char *getOutputFileName(char *baseName) {
+    int nomeArquivoSaidaLength = strlen(DIRETORIO_ARQUIVO_SAIDA) + FILE_NAME_MAX_LENGTH + 1;
+    char *nomeArquivoSaida = (char *) malloc(nomeArquivoSaidaLength * sizeof(char));
+
+    sprintf(nomeArquivoSaida, "%ssaida-%s.txt", DIRETORIO_ARQUIVO_SAIDA, baseName);
+
+    return nomeArquivoSaida;
+}
 
 /*
  * Lê a próxima linha do arquivo e preencha dados de Aluno
@@ -74,7 +90,7 @@ void writeCurrentAlunoOnFile(FILE *fp, Node *node) {
 /*
  * Lê o arquivo na URL específicada e preenche as hash de acordo com seu o conteúdo
  * */
-ArvoreBinaria *readAlunoFromFile(ArvoreBinaria *arvoreBinaria) {
+ArvoreBinaria *readAlunoFromFile(ArvoreBinaria *arvoreBinaria, ArvoreAvl *arvoreAvl) {
     FILE *fp = fopen(DIRETORIO_ARQUIVO_ENTRADA, "r");
     int contador = 0;
     int registros;
@@ -89,6 +105,7 @@ ArvoreBinaria *readAlunoFromFile(ArvoreBinaria *arvoreBinaria) {
     while (!feof(fp) && contador < registros) {
         Aluno *aluno = readNextAluno(fp);
         insertArvoreBinaria(arvoreBinaria, aluno);
+        insertArvoreAvl(arvoreAvl, aluno);
         contador++;
     }
 
@@ -97,14 +114,12 @@ ArvoreBinaria *readAlunoFromFile(ArvoreBinaria *arvoreBinaria) {
 }
 
 /*
- * Cria um arquivo com os registros de uma hash
+ * Cria um arquivo com os registros de uma ArvoreBinaria
  * */
 void writeArvoreBinariaOnFile(ArvoreBinaria *arvoreBinaria) {
-    int nomeArquivoSaidaLength = strlen(DIRETORIO_ARQUIVO_SAIDA) + FILE_NAME_MAX_LENGTH + 1;
-    char *nomeArquivoSaida = (char *) malloc(nomeArquivoSaidaLength * sizeof(char));
+    char *nomeArquivoSaida = getOutputFileName(arvoreBinaria->label);
     FILE *fp;
 
-    sprintf(nomeArquivoSaida, "%ssaida-%s.txt", DIRETORIO_ARQUIVO_SAIDA, arvoreBinaria->label);
     fp = fopen(nomeArquivoSaida, "w");
     if (!fp) {
         printf(ERRO_ABRIR_ARQUIVO);
@@ -113,6 +128,25 @@ void writeArvoreBinariaOnFile(ArvoreBinaria *arvoreBinaria) {
 
     printf(MENSSAGE_SALVANDO_ARQUIVO);
     writeAlunosOnFile(fp, arvoreBinaria->root);
+
+    fclose(fp);
+}
+
+/*
+ * Cria um arquivo com os registros de uma ArvoreAvl
+ * */
+void writeArvoreAvlOnFile(ArvoreAvl *arvoreAvl) {
+    char *nomeArquivoSaida = getOutputFileName(arvoreAvl->label);
+    FILE *fp;
+
+    fp = fopen(nomeArquivoSaida, "w");
+    if (!fp) {
+        printf(ERRO_ABRIR_ARQUIVO);
+        return;
+    }
+
+    printf(MENSSAGE_SALVANDO_ARQUIVO);
+    writeAlunosOnFile(fp, arvoreAvl->root);
 
     fclose(fp);
 }
