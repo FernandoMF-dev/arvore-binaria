@@ -7,20 +7,7 @@
 
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
-int getChargeFactor(Node *node);
-
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
-
-/*
- * Retorna o fator de carga de um Node.
- * Caso o Node seja nulo, retorna 0.
- * */
-int getChargeFactor(Node *node) {
-    if (node == NULL) {
-        return 0;
-    }
-    return node->chargeFactor;
-}
 
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
 
@@ -71,8 +58,8 @@ int compareNode(Node *node1, Node *node2) {
  * Compara se um valor (value) corresponde a ao registro em um node.
  *
  * Se sim, retorna 0.
- * Se o valor for maior, retorna um inteiro maior que 0.
- * Se o valor for menor, retorna um inteiro menor que 0.
+ * Se o node for maior, retorna um inteiro maior que 0.
+ * Se o node for menor, retorna um inteiro menor que 0.
  * */
 int compareNodeByValue(Node *node, Aluno *value) {
     return compareAluno(node->value, value);
@@ -138,6 +125,7 @@ void findAndPrintNode(Node *node, char *key, int counter) {
  * Imprime um Node
  * */
 void printNode(Node *node) {
+    printf("[%d]", node->chargeFactor);
     printAluno(node->value);
 }
 
@@ -194,29 +182,44 @@ Aluno *getMinNode(Node *node) {
 /*
  * Atualiza o fator carga de um node e seus filhos
  * */
-void updateChargeFactor(Node *node) {
+void updateAllChargeFactor(Node *node) {
     if (node == NULL) {
         return;
     }
     if (node->left != NULL) {
-        updateChargeFactor(node->left);
+        updateAllChargeFactor(node->left);
     }
     if (node->right != NULL) {
-        updateChargeFactor(node->right);
+        updateAllChargeFactor(node->right);
     }
 
-    updateSingleChargeFactor(node);
+    updateChargeFactor(node);
 }
 
 /*
- * Atualiza o fator carga de um node e seus filhos
+ * Atualiza o fator carga de um node
  * */
-void updateSingleChargeFactor(Node *node) {
+void updateChargeFactor(Node *node) {
     if (node == NULL) {
         return;
     }
 
-    node->chargeFactor = getChargeFactor(node->left) - getChargeFactor(node->right);
+    if (node->left == NULL && node->right == NULL) {
+        node->chargeFactor = 0;
+        return;
+    }
+
+    if (node->left != NULL && node->right == NULL) {
+        node->chargeFactor = node->left->chargeFactor + 1;
+        return;
+    }
+
+    if (node->left == NULL && node->right != NULL) {
+        node->chargeFactor = node->right->chargeFactor - 1;
+        return;
+    }
+
+    node->chargeFactor = node->left->chargeFactor - node->right->chargeFactor;
 }
 
 /*

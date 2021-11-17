@@ -10,10 +10,6 @@
 headers/ArvoreAvl.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreAvl.h
 
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c
-headers/ArvoreBinaria.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
-
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
 stdio.h
 -
@@ -23,16 +19,6 @@ string.h
 -
 
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreAvl.h
-stdio.h
--
-stdlib.h
--
-Node.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
-Aluno.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
-
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
 stdio.h
 -
 stdlib.h

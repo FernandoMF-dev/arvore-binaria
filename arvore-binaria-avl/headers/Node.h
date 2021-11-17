@@ -38,9 +38,9 @@ Aluno *getMaxNode(Node *node);
 
 Aluno *getMinNode(Node *node);
 
-void updateChargeFactor(Node *node);
+void updateAllChargeFactor(Node *node);
 
-void updateSingleChargeFactor(Node *node);
+void updateChargeFactor(Node *node);
 
 void clearNode(Node *node);
 

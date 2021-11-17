@@ -52,7 +52,7 @@ Node *rotateLeft(Node *node) {
 }
 
 Node *rotateRight(Node *node) {
-    Node *aux = node->left;
+    Node *aux = node->right;
 
     node->right = aux->left;
     aux->left = node;
@@ -77,7 +77,7 @@ Node *insertBalanceAvlLeft(Node *node, Aluno *value) {
         } else {
             node = rotateLeftRight(node);
         }
-        updateChargeFactor(node);
+        updateAllChargeFactor(node);
     }
 
     return node;
@@ -90,7 +90,7 @@ Node *insertBalanceAvlRight(Node *node, Aluno *value) {
         } else {
             node = rotateRightLeft(node);
         }
-        updateChargeFactor(node);
+        updateAllChargeFactor(node);
     }
 
     return node;
@@ -103,7 +103,7 @@ Node *removeBalanceAvlLeft(Node *node) {
         } else {
             node = rotateRight(node);
         }
-        updateChargeFactor(node);
+        updateAllChargeFactor(node);
     }
 
     return node;
@@ -116,7 +116,7 @@ Node *removeBalanceAvlRight(Node *node) {
         } else {
             node = rotateLeft(node);
         }
-        updateChargeFactor(node);
+        updateAllChargeFactor(node);
     }
 
     return node;
@@ -137,11 +137,11 @@ Node *insertNodeArvoreAvl(Node *node, Aluno *value) {
 
     if (compare > 0) {
         node->left = insertNewNodeArvoreAvl(node->left, value);
-        updateSingleChargeFactor(node);
+        updateChargeFactor(node);
         node = insertBalanceAvlLeft(node, value);
     } else if (compare < 0) {
         node->right = insertNewNodeArvoreAvl(node->right, value);
-        updateSingleChargeFactor(node);
+        updateChargeFactor(node);
         node = insertBalanceAvlRight(node, value);
     }
 
@@ -174,11 +174,11 @@ Node *removeNodeArvoreAvl(Node *node, char *key) {
 
     if (compare > 0) {
         node->left = removeNodeArvoreAvl(node->left, key);
-        updateSingleChargeFactor(node);
+        updateChargeFactor(node);
         removeBalanceAvlLeft(node);
     } else if (compare < 0) {
         node->right = removeNodeArvoreAvl(node->right, key);
-        updateSingleChargeFactor(node);
+        updateChargeFactor(node);
         removeBalanceAvlRight(node);
     } else {
         if (node->left == NULL && node->right == NULL) {
@@ -188,7 +188,7 @@ Node *removeNodeArvoreAvl(Node *node, char *key) {
         } else {
             node = removeNodeTwoChildrenArvoreAvl(node, key);
         }
-        updateChargeFactor(node);
+        updateAllChargeFactor(node);
     }
 
     return node;
