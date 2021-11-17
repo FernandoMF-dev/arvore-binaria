@@ -16,9 +16,9 @@ Node *rotateRightLeft(Node *node);
 
 Node *rotateLeftRight(Node *node);
 
-Node *insertBalanceAvlLeft(Node *node, Aluno *value);
+Node *insertBalanceAvlLeft(Node *node);
 
-Node *insertBalanceAvlRight(Node *node, Aluno *value);
+Node *insertBalanceAvlRight(Node *node);
 
 Node *removeBalanceAvlLeft(Node *node);
 
@@ -78,24 +78,28 @@ Node *rotateLeftRight(Node *node) {
     return rotateRight(node);
 }
 
-Node *insertBalanceAvlLeft(Node *node, Aluno *value) {
+Node *insertBalanceAvlLeft(Node *node) {
+    updateChildrenChargeFactor(node);
+
     if (node->chargeFactor > 1) {
-        if (compareNodeByValue(node, value) > 0) {
-            node = rotateRight(node);
-        } else {
+        if (node->left->chargeFactor < 0) {
             node = rotateLeftRight(node);
+        } else {
+            node = rotateRight(node);
         }
     }
 
     return node;
 }
 
-Node *insertBalanceAvlRight(Node *node, Aluno *value) {
+Node *insertBalanceAvlRight(Node *node) {
+    updateChildrenChargeFactor(node);
+
     if (node->chargeFactor < -1) {
-        if (compareNodeByValue(node, value) < 0) {
-            node = rotateLeft(node);
-        } else {
+        if (node->right->chargeFactor > 0) {
             node = rotateRightLeft(node);
+        } else {
+            node = rotateLeft(node);
         }
     }
 
@@ -103,26 +107,30 @@ Node *insertBalanceAvlRight(Node *node, Aluno *value) {
 }
 
 Node *removeBalanceAvlLeft(Node *node) {
-    if (node->chargeFactor > 1) {
-        if (node->right != NULL && node->right->chargeFactor > 0) {
+    updateChildrenChargeFactor(node);
+
+    if (node->chargeFactor < -1) {
+        if (node->right->chargeFactor > 0) {
             node = rotateRightLeft(node);
         } else {
-            node = rotateRight(node);
+            node = rotateLeft(node);
         }
-        updateAllChargeFactor(node);
+        updateChildrenChargeFactor(node);
     }
 
     return node;
 }
 
 Node *removeBalanceAvlRight(Node *node) {
-    if (node->chargeFactor < -1) {
-        if (node->left != NULL && node->left->chargeFactor < 0) {
+    updateChildrenChargeFactor(node);
+
+    if (node->chargeFactor > 1) {
+        if (node->left->chargeFactor < 0) {
             node = rotateLeftRight(node);
         } else {
-            node = rotateLeft(node);
+            node = rotateRight(node);
         }
-        updateAllChargeFactor(node);
+        updateChildrenChargeFactor(node);
     }
 
     return node;
@@ -143,12 +151,10 @@ Node *insertNodeArvoreAvl(Node *node, Aluno *value) {
 
     if (compare > 0) {
         node->left = insertNewNodeArvoreAvl(node->left, value);
-        updateChargeFactor(node);
-        node = insertBalanceAvlLeft(node, value);
+        node = insertBalanceAvlLeft(node);
     } else if (compare < 0) {
         node->right = insertNewNodeArvoreAvl(node->right, value);
-        updateChargeFactor(node);
-        node = insertBalanceAvlRight(node, value);
+        node = insertBalanceAvlRight(node);
     }
 
     return node;
@@ -180,11 +186,9 @@ Node *removeNodeArvoreAvl(Node *node, char *key) {
 
     if (compare > 0) {
         node->left = removeNodeArvoreAvl(node->left, key);
-        updateChargeFactor(node);
         node = removeBalanceAvlLeft(node);
     } else if (compare < 0) {
         node->right = removeNodeArvoreAvl(node->right, key);
-        updateChargeFactor(node);
         node = removeBalanceAvlRight(node);
     } else {
         if (node->left == NULL && node->right == NULL) {

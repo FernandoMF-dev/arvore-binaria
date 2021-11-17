@@ -40,6 +40,8 @@ Aluno *getMinNode(Node *node);
 
 void updateAllChargeFactor(Node *node);
 
+void updateChildrenChargeFactor(Node *node);
+
 void updateChargeFactor(Node *node);
 
 void clearNode(Node *node);

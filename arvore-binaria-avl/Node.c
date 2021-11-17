@@ -180,7 +180,7 @@ Aluno *getMinNode(Node *node) {
 }
 
 /*
- * Atualiza o fator carga de um node e seus filhos
+ * Atualiza o fator carga de todos os Nodes em uma sub-árvore
  * */
 void updateAllChargeFactor(Node *node) {
     if (node == NULL) {
@@ -193,6 +193,19 @@ void updateAllChargeFactor(Node *node) {
         updateAllChargeFactor(node->right);
     }
 
+    updateChargeFactor(node);
+}
+
+/*
+ * Atualiza o fator carga de um node e seus filhos
+ * */
+void updateChildrenChargeFactor(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    updateChargeFactor(node->left);
+    updateChargeFactor(node->right);
     updateChargeFactor(node);
 }
 
@@ -210,12 +223,12 @@ void updateChargeFactor(Node *node) {
     }
 
     if (node->left != NULL && node->right == NULL) {
-        node->chargeFactor = node->left->chargeFactor + 1;
+        node->chargeFactor = labs(node->left->chargeFactor) + 1;
         return;
     }
 
     if (node->left == NULL && node->right != NULL) {
-        node->chargeFactor = node->right->chargeFactor - 1;
+        node->chargeFactor = (labs(node->right->chargeFactor) + 1) * (-1);
         return;
     }
 
