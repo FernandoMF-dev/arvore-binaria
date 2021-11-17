@@ -8,6 +8,14 @@
 
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
+Node *rotateLeft(Node *node);
+
+Node *rotateRight(Node *node);
+
+Node *rotateLeftRight(Node *node);
+
+Node *rotateRightLeft(Node *node);
+
 void insertRoot(ArvoreAvl *arvoreAvl, Aluno *value);
 
 Node *insertNode(Node *node, Aluno *value);
@@ -40,15 +48,35 @@ void printNodePreOrder(Node *node);
 
 void printNodePostOrder(Node *node);
 
-Node *rotateLeft(Node *node);
-
-Node *rotateRight(Node *node);
-
-Node *rotateLeftRight(Node *node);
-
-Node *rotateRightLeft(Node *node);
-
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
+
+Node *rotateLeft(Node *node) {
+    Node *aux = node->left;
+
+    node->left = aux->right;
+    aux->right = node;
+
+    return aux;
+}
+
+Node *rotateRight(Node *node) {
+    Node *aux = node->left;
+
+    node->right = aux->left;
+    aux->left = node;
+
+    return aux;
+}
+
+Node *rotateLeftRight(Node *node) {
+    node->left = rotateRight(node->left);
+    return rotateLeft(node);
+}
+
+Node *rotateRightLeft(Node *node) {
+    node->right = rotateLeft(node->right);
+    return rotateRight(node);
+}
 
 /*
  * Insere um registro na raiz de uma ArvoreAvl
@@ -285,34 +313,6 @@ void printNodePostOrder(Node *node) {
     printNodePostOrder(node->right);
     printNode(node);
     printf("\n");
-}
-
-Node *rotateLeft(Node *node) {
-    Node *aux = node->left;
-
-    node->left = aux->right;
-    aux->right = node;
-
-    return aux;
-}
-
-Node *rotateRight(Node *node) {
-    Node *aux = node->left;
-
-    node->right = aux->left;
-    aux->left = node;
-
-    return aux;
-}
-
-Node *rotateLeftRight(Node *node) {
-    node->left = rotateRight(node->left);
-    return rotateLeft(node);
-}
-
-Node *rotateRightLeft(Node *node) {
-    node->right = rotateLeft(node->right);
-    return rotateRight(node);
 }
 
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
