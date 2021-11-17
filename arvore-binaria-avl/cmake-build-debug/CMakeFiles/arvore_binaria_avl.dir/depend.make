@@ -4,6 +4,12 @@
 CMakeFiles/arvore_binaria_avl.dir/Aluno.c.o: \
  ../Aluno.c \
  ../headers/Aluno.h
+CMakeFiles/arvore_binaria_avl.dir/ArvoreAvl.c.o: \
+ ../ArvoreAvl.c \
+ ../headers/Aluno.h \
+ ../headers/ArvoreAvl.h \
+ ../headers/FuncaoUtils.h \
+ ../headers/Node.h
 CMakeFiles/arvore_binaria_avl.dir/ArvoreBinaria.c.o: \
  ../ArvoreBinaria.c \
  ../headers/Aluno.h \
@@ -27,6 +33,7 @@ CMakeFiles/arvore_binaria_avl.dir/Node.c.o: \
  ../headers/Node.h
 CMakeFiles/arvore_binaria_avl.dir/main.c.o: \
  ../headers/Aluno.h \
+ ../headers/ArvoreAvl.h \
  ../headers/ArvoreBinaria.h \
  ../headers/ControleArquivoAluno.h \
  ../headers/FuncaoUtils.h \

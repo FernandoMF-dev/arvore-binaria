@@ -5,7 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/arvore_binaria_avl.dir/ControleArquivoAluno.c.o"
   "CMakeFiles/arvore_binaria_avl.dir/FuncaoUtils.c.o"
   "CMakeFiles/arvore_binaria_avl.dir/Node.c.o"
-  "CMakeFiles/arvore_binaria_avl.dir/arvAVL.c.o"
   "CMakeFiles/arvore_binaria_avl.dir/main.c.o"
   "arvore_binaria_avl"
   "arvore_binaria_avl.pdb"

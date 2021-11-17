@@ -3,6 +3,7 @@
 // =-=-=-=-= CONSTANTES =-=-=-=-=
 
 #define ERROR_FALHA_ALOCACAO "\n\tERRO: Erro durante alocação de memória!\n"
+#define ERROR_REGISTRO_NAO_ENCONTRADO "\n\tERRO: Registro não encontrado!\n"
 
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
@@ -89,6 +90,51 @@ int compareNodeByKey(Node *node, char *key) {
 }
 
 /*
+ * Busca um valor em um Node e nos seus filhos de acordo com uma chave (key).
+ *
+ * Se encontrar, retorna os dados do valor.
+ * Se não, retorna NULL.
+ * */
+Aluno *searchNode(Node *node, char *key) {
+    if (node == NULL) {
+        printf(ERROR_REGISTRO_NAO_ENCONTRADO);
+        return NULL;
+    }
+
+    int compare = compareNodeByKey(node, key);
+
+    if (compare > 0) {
+        return searchNode(node->left, key);
+    } else if (compare < 0) {
+        return searchNode(node->right, key);
+    }
+    return node->value;
+}
+
+/*
+ * Busca um registro em um node e nos seus filhos e imprime:
+ *
+ * - Os dados do registro;
+ * - O número de registros que foram verificados antes de o alvo ser encontrado.
+ * */
+void findAndPrintNode(Node *node, char *key, int counter) {
+    if (node != NULL) {
+        int compare = compareNodeByKey(node, key);
+
+        if (compare > 0) {
+            return findAndPrintNode(node->left, key, counter + 1);
+        } else if (compare < 0) {
+            return findAndPrintNode(node->right, key, counter + 1);
+        } else {
+            printNode(node);
+        }
+    } else {
+        printf(ERROR_REGISTRO_NAO_ENCONTRADO);
+    }
+    printf("\nForam comparados %d registros antes de encontrar esse resultado", counter);
+}
+
+/*
  * Imprime um Node
  * */
 void printNode(Node *node) {
@@ -123,6 +169,26 @@ int getSizeNode(Node *node) {
     }
 
     return size;
+}
+
+/*
+ * Busca e retorna o maior valor numa sub árvore
+ * */
+Aluno *getMaxNode(Node *node) {
+    if (node->right == NULL) {
+        return node->value;
+    }
+    return getMaxNode(node->right);
+}
+
+/*
+ * Busca e retorna o menor valor numa sub árvore
+ * */
+Aluno *getMinNode(Node *node) {
+    if (node->left == NULL) {
+        return node->value;
+    }
+    return getMinNode(node->left);
 }
 
 /*
@@ -164,4 +230,64 @@ void clearNode(Node *node) {
         clearNode(node->right);
     }
     free(node);
+}
+
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Em-Ordem Crescente"
+ * */
+void printNodeInOrderAsc(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNodeInOrderAsc(node->left);
+    printNode(node);
+    printf("\n");
+    printNodeInOrderAsc(node->right);
+}
+
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Em-Ordem Decrescente"
+ * */
+void printNodeInOrderDesc(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNodeInOrderDesc(node->right);
+    printNode(node);
+    printf("\n");
+    printNodeInOrderDesc(node->left);
+}
+
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Pré-Ordem"
+ * */
+void printNodePreOrder(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNode(node);
+    printf("\n");
+    printNodePreOrder(node->left);
+    printNodePreOrder(node->right);
+}
+
+/*
+ * Imprime o valor de um Node e de seus filhos
+ * Segue a ordenação "Pós-Ordem"
+ * */
+void printNodePostOrder(Node *node) {
+    if (node == NULL) {
+        return;
+    }
+
+    printNodePostOrder(node->left);
+    printNodePostOrder(node->right);
+    printNode(node);
+    printf("\n");
 }

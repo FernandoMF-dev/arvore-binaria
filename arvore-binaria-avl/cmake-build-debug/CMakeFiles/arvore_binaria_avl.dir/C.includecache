@@ -6,14 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreAvl.c
+headers/ArvoreAvl.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreAvl.h
+
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c
 headers/ArvoreBinaria.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
 
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ControleArquivoAluno.c
-headers/ControleArquivoAluno.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ControleArquivoAluno.h
-
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
 stdio.h
 -
@@ -21,6 +21,16 @@ stdlib.h
 -
 string.h
 -
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreAvl.h
+stdio.h
+-
+stdlib.h
+-
+Node.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
+Aluno.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
 
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
 stdio.h
@@ -31,20 +41,6 @@ Node.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
 Aluno.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
-
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ControleArquivoAluno.h
-stdio.h
--
-stdlib.h
--
-string.h
--
-Aluno.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
-Node.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
-ArvoreBinaria.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
 
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
 stdio.h
@@ -61,14 +57,4 @@ Aluno.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
 FuncaoUtils.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
-
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/main.c
-stdio.h
--
-headers/Aluno.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
-headers/ArvoreBinaria.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
-headers/ControleArquivoAluno.h
-/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ControleArquivoAluno.h
 
