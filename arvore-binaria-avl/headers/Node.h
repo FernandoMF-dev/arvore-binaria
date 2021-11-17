@@ -32,6 +32,8 @@ int getSizeNode(Node *node);
 
 void updateChargeFactor(Node *node);
 
+void updateSingleChargeFactor(Node *node);
+
 void clearNode(Node *node);
 
 #endif //ARVORE_BINARIA_AVL_NODE_H

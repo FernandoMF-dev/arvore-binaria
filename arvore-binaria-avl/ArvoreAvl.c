@@ -93,6 +93,7 @@ Node *insertBalanceAvlLeft(Node *node, Aluno *value) {
         } else {
             node = rotateLeftRight(node);
         }
+        updateChargeFactor(node);
     }
 
     return node;
@@ -105,6 +106,7 @@ Node *insertBalanceAvlRight(Node *node, Aluno *value) {
         } else {
             node = rotateRightLeft(node);
         }
+        updateChargeFactor(node);
     }
 
     return node;
@@ -117,6 +119,7 @@ Node *removeBalanceAvlLeft(Node *node) {
         } else {
             node = rotateRight(node);
         }
+        updateChargeFactor(node);
     }
 
     return node;
@@ -129,6 +132,7 @@ Node *removeBalanceAvlRight(Node *node) {
         } else {
             node = rotateLeft(node);
         }
+        updateChargeFactor(node);
     }
 
     return node;
@@ -149,8 +153,12 @@ Node *insertNode(Node *node, Aluno *value) {
 
     if (compare > 0) {
         node->left = insertNewNode(node->left, value);
+        updateSingleChargeFactor(node);
+        node = insertBalanceAvlLeft(node, value);
     } else if (compare < 0) {
         node->right = insertNewNode(node->right, value);
+        updateSingleChargeFactor(node);
+        node = insertBalanceAvlRight(node, value);
     }
 
     return node;
@@ -227,8 +235,12 @@ Node *removeNode(Node *node, char *key) {
 
     if (compare > 0) {
         node->left = removeNode(node->left, key);
+        updateSingleChargeFactor(node);
+        removeBalanceAvlLeft(node);
     } else if (compare < 0) {
         node->right = removeNode(node->right, key);
+        updateSingleChargeFactor(node);
+        removeBalanceAvlRight(node);
     } else {
         if (node->left == NULL && node->right == NULL) {
             node = removeNodeZeroChildren(node);
@@ -237,7 +249,9 @@ Node *removeNode(Node *node, char *key) {
         } else {
             node = removeNodeTwoChildren(node, key);
         }
+        updateChargeFactor(node);
     }
+
     return node;
 }
 

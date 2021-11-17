@@ -129,11 +129,25 @@ int getSizeNode(Node *node) {
  * Atualiza o fator carga de um node e seus filhos
  * */
 void updateChargeFactor(Node *node) {
+    if (node == NULL) {
+        return;
+    }
     if (node->left != NULL) {
         updateChargeFactor(node->left);
     }
     if (node->right != NULL) {
         updateChargeFactor(node->right);
+    }
+
+    updateSingleChargeFactor(node);
+}
+
+/*
+ * Atualiza o fator carga de um node e seus filhos
+ * */
+void updateSingleChargeFactor(Node *node) {
+    if (node == NULL) {
+        return;
     }
 
     node->chargeFactor = getChargeFactor(node->left) - getChargeFactor(node->right);
