@@ -8,7 +8,7 @@
 #define ARVORE_BINARIA_AVL_NODE_H
 
 typedef struct Node {
-    int chargeFactor;
+    int height;
     Aluno *value;
     struct Node *left;
     struct Node *right;
@@ -30,7 +30,7 @@ void findAndPrintNode(Node *node, char *key, int counter);
 
 void printNode(Node *node);
 
-int getHeightNode(Node *node);
+int findHeightNode(Node *node);
 
 int getSizeNode(Node *node);
 
@@ -38,11 +38,13 @@ Aluno *getMaxNode(Node *node);
 
 Aluno *getMinNode(Node *node);
 
-void updateAllChargeFactor(Node *node);
+int getChargeFactorNode(Node *node);
 
-void updateChildrenChargeFactor(Node *node);
+void updateAllHeightNode(Node *node);
 
-void updateChargeFactor(Node *node);
+void updateChildrenHeightNode(Node *node);
+
+void updateHeightNode(Node *node);
 
 void clearNode(Node *node);
 

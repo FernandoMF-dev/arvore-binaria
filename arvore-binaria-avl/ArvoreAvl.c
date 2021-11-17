@@ -47,10 +47,7 @@ Node *rotateRight(Node *node) {
 
     node->left = aux->right;
     aux->right = node;
-
-    updateChargeFactor(aux->left);
-    updateChargeFactor(aux->right);
-    updateChargeFactor(aux);
+    updateChildrenHeightNode(aux);
 
     return aux;
 }
@@ -60,10 +57,7 @@ Node *rotateLeft(Node *node) {
 
     node->right = aux->left;
     aux->left = node;
-
-    updateChargeFactor(aux->left);
-    updateChargeFactor(aux->right);
-    updateChargeFactor(aux);
+    updateChildrenHeightNode(aux);
 
     return aux;
 }
@@ -79,58 +73,60 @@ Node *rotateLeftRight(Node *node) {
 }
 
 Node *insertBalanceAvlLeft(Node *node) {
-    updateChildrenChargeFactor(node);
+    updateChildrenHeightNode(node);
 
-    if (node->chargeFactor > 1) {
-        if (node->left->chargeFactor < 0) {
+    if (getChargeFactorNode(node) > 1) {
+        if (getChargeFactorNode(node->left) < 0) {
             node = rotateLeftRight(node);
         } else {
             node = rotateRight(node);
         }
+        updateAllHeightNode(node);
     }
 
     return node;
 }
 
 Node *insertBalanceAvlRight(Node *node) {
-    updateChildrenChargeFactor(node);
+    updateChildrenHeightNode(node);
 
-    if (node->chargeFactor < -1) {
-        if (node->right->chargeFactor > 0) {
+    if (getChargeFactorNode(node) < -1) {
+        if (getChargeFactorNode(node->right) > 0) {
             node = rotateRightLeft(node);
         } else {
             node = rotateLeft(node);
         }
+        updateAllHeightNode(node);
     }
 
     return node;
 }
 
 Node *removeBalanceAvlLeft(Node *node) {
-    updateChildrenChargeFactor(node);
+    updateChildrenHeightNode(node);
 
-    if (node->chargeFactor < -1) {
-        if (node->right->chargeFactor > 0) {
+    if (getChargeFactorNode(node) < -1) {
+        if (getChargeFactorNode(node->right) > 0) {
             node = rotateRightLeft(node);
         } else {
             node = rotateLeft(node);
         }
-        updateChildrenChargeFactor(node);
+        updateAllHeightNode(node);
     }
 
     return node;
 }
 
 Node *removeBalanceAvlRight(Node *node) {
-    updateChildrenChargeFactor(node);
+    updateChildrenHeightNode(node);
 
-    if (node->chargeFactor > 1) {
-        if (node->left->chargeFactor < 0) {
+    if (getChargeFactorNode(node) > 1) {
+        if (getChargeFactorNode(node->left) < 0) {
             node = rotateLeftRight(node);
         } else {
             node = rotateRight(node);
         }
-        updateChildrenChargeFactor(node);
+        updateAllHeightNode(node);
     }
 
     return node;
@@ -198,7 +194,7 @@ Node *removeNodeArvoreAvl(Node *node, char *key) {
         } else {
             node = removeNodeTwoChildrenArvoreAvl(node, key);
         }
-        updateAllChargeFactor(node);
+        updateAllHeightNode(node);
     }
 
     return node;
@@ -331,7 +327,7 @@ int getHeightArvoreAvl(ArvoreAvl *arvoreAvl) {
     if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
     }
-    return getHeightNode(arvoreAvl->root);
+    return findHeightNode(arvoreAvl->root);
 }
 
 /*

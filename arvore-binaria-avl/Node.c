@@ -7,7 +7,16 @@
 
 // =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
+int getHeightNode(Node *node);
+
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
+
+int getHeightNode(Node *node) {
+    if (node == NULL) {
+        return -1;
+    }
+    return node->height;
+}
 
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
 
@@ -22,7 +31,7 @@ Node *newNode() {
         return NULL;
     }
 
-    node->chargeFactor = 0;
+    node->height = 0;
     node->value = NULL;
     node->left = NULL;
     node->right = NULL;
@@ -125,7 +134,7 @@ void findAndPrintNode(Node *node, char *key, int counter) {
  * Imprime um Node
  * */
 void printNode(Node *node) {
-    printf("[%d]", node->chargeFactor);
+    printf("[%d | %d]", getChargeFactorNode(node), node->height);
     printAluno(node->value);
 }
 
@@ -134,12 +143,12 @@ void printNode(Node *node) {
  * O valor inicial é 0, então um Node sem filhos retornará 0.
  * Caso o Node seja nulo, retorna -1
  * */
-int getHeightNode(Node *node) {
+int findHeightNode(Node *node) {
     if (node == NULL) {
         return -1;
     }
 
-    return getMaxInt(getHeightNode(node->left), getHeightNode(node->right)) + 1;
+    return getMaxInt(findHeightNode(node->left), findHeightNode(node->right)) + 1;
 }
 
 /*
@@ -180,59 +189,52 @@ Aluno *getMinNode(Node *node) {
 }
 
 /*
- * Atualiza o fator carga de todos os Nodes em uma sub-árvore
+ * retorna o fator carga de um Node
  * */
-void updateAllChargeFactor(Node *node) {
+int getChargeFactorNode(Node *node) {
+    return getHeightNode(node->left) - getHeightNode(node->right);
+}
+
+/*
+ * Atualiza o fator carga de todos os Nodes e todos os seus descendentes
+ * */
+void updateAllHeightNode(Node *node) {
     if (node == NULL) {
         return;
     }
+
     if (node->left != NULL) {
-        updateAllChargeFactor(node->left);
+        updateAllHeightNode(node->left);
     }
     if (node->right != NULL) {
-        updateAllChargeFactor(node->right);
+        updateAllHeightNode(node->right);
     }
 
-    updateChargeFactor(node);
+    updateHeightNode(node);
 }
 
 /*
- * Atualiza o fator carga de um node e seus filhos
+ * Atualiza a altura de um Node e os dos seus filhos
  * */
-void updateChildrenChargeFactor(Node *node) {
+void updateChildrenHeightNode(Node *node) {
     if (node == NULL) {
         return;
     }
 
-    updateChargeFactor(node->left);
-    updateChargeFactor(node->right);
-    updateChargeFactor(node);
+    updateHeightNode(node->left);
+    updateHeightNode(node->right);
+    updateHeightNode(node);
 }
 
 /*
- * Atualiza o fator carga de um node
+ * Atualiza a altura de um Node
  * */
-void updateChargeFactor(Node *node) {
+void updateHeightNode(Node *node) {
     if (node == NULL) {
         return;
     }
 
-    if (node->left == NULL && node->right == NULL) {
-        node->chargeFactor = 0;
-        return;
-    }
-
-    if (node->left != NULL && node->right == NULL) {
-        node->chargeFactor = labs(node->left->chargeFactor) + 1;
-        return;
-    }
-
-    if (node->left == NULL && node->right != NULL) {
-        node->chargeFactor = (labs(node->right->chargeFactor) + 1) * (-1);
-        return;
-    }
-
-    node->chargeFactor = node->left->chargeFactor - node->right->chargeFactor;
+    node->height = getMaxInt(getHeightNode(node->left), getHeightNode(node->right)) + 1;
 }
 
 /*

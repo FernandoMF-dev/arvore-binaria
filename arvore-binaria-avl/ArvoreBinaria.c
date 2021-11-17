@@ -215,7 +215,7 @@ int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
     if (arvoreBinaria->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
     }
-    return getHeightNode(arvoreBinaria->root);
+    return findHeightNode(arvoreBinaria->root);
 }
 
 /*
