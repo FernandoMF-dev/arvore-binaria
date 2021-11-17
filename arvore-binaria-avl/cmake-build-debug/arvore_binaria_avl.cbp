@@ -82,9 +82,6 @@
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreAvl.c">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
-		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreAvl.h">
-			<Option target="arvore_binaria_avl"/>
-		</Unit>
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
@@ -97,7 +94,16 @@
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Node.c">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
+		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/arvAVL.c">
+			<Option target="arvore_binaria_avl"/>
+		</Unit>
+		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/arvAVL.h">
+			<Option target="arvore_binaria_avl"/>
+		</Unit>
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h">
+			<Option target="arvore_binaria_avl"/>
+		</Unit>
+		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreAvl.h">
 			<Option target="arvore_binaria_avl"/>
 		</Unit>
 		<Unit filename="/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h">

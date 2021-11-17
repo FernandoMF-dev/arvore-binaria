@@ -273,6 +273,30 @@ Node.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/Node.c.s
 .PHONY : Node.c.s
 
+arvAVL.o: arvAVL.c.o
+.PHONY : arvAVL.o
+
+# target to build an object file
+arvAVL.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/arvAVL.c.o
+.PHONY : arvAVL.c.o
+
+arvAVL.i: arvAVL.c.i
+.PHONY : arvAVL.i
+
+# target to preprocess a source file
+arvAVL.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/arvAVL.c.i
+.PHONY : arvAVL.c.i
+
+arvAVL.s: arvAVL.c.s
+.PHONY : arvAVL.s
+
+# target to generate assembly for a file
+arvAVL.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arvore_binaria_avl.dir/build.make CMakeFiles/arvore_binaria_avl.dir/arvAVL.c.s
+.PHONY : arvAVL.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -324,6 +348,9 @@ help:
 	@echo "... Node.o"
 	@echo "... Node.i"
 	@echo "... Node.s"
+	@echo "... arvAVL.o"
+	@echo "... arvAVL.i"
+	@echo "... arvAVL.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

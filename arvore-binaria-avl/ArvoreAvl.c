@@ -40,6 +40,10 @@ void printNodePreOrder(Node *node);
 
 void printNodePostOrder(Node *node);
 
+Node *rotateLeft(Node *node);
+
+Node *rotateRight(Node *node);
+
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
 /*
@@ -277,6 +281,24 @@ void printNodePostOrder(Node *node) {
     printNodePostOrder(node->right);
     printNode(node);
     printf("\n");
+}
+
+Node *rotateLeft(Node *node) {
+    Node *aux = node->left;
+
+    node->left = aux->right;
+    aux->right = node;
+
+    return aux;
+}
+
+Node *rotateRight(Node *node) {
+    Node *aux = node->left;
+
+    node->right = aux->left;
+    aux->left = node;
+
+    return aux;
 }
 
 // =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
