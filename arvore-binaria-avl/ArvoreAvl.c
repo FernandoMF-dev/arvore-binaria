@@ -20,6 +20,10 @@ Node *insertBalanceAvlLeft(Node *node, Aluno *value);
 
 Node *insertBalanceAvlRight(Node *node, Aluno *value);
 
+Node *removeBalanceAvlLeft(Node *node, Aluno *value);
+
+Node *removeBalanceAvlRight(Node *node, Aluno *value);
+
 void insertRoot(ArvoreAvl *arvoreAvl, Aluno *value);
 
 Node *insertNode(Node *node, Aluno *value);
@@ -100,6 +104,30 @@ Node *insertBalanceAvlRight(Node *node, Aluno *value) {
             node = rotateRight(node);
         } else {
             node = rotateRightLeft(node);
+        }
+    }
+
+    return node;
+}
+
+Node *removeBalanceAvlLeft(Node *node, Aluno *value) {
+    if (node->chargeFactor > 1) {
+        if (getHeightNode(node->right->right) < getHeightNode(node->right->left)) {
+            node = rotateRightLeft(node);
+        } else {
+            node = rotateRight(node);
+        }
+    }
+
+    return node;
+}
+
+Node *removeBalanceAvlRight(Node *node, Aluno *value) {
+    if (node->chargeFactor < 1) {
+        if (getHeightNode(node->left->left) < getHeightNode(node->left->right)) {
+            node = rotateLeftRight(node);
+        } else {
+            node = rotateLeft(node);
         }
     }
 
