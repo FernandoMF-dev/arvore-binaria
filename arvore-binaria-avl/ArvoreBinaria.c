@@ -6,7 +6,7 @@
 #define ERROR_ARVORE_VAZIA "\n\tERRO: A ArvoreBinaria está vazia!\n"
 #define ERROR_REGISTRO_NAO_ENCONTRADO "\n\tERRO: Registro não encontrado!\n"
 
-// =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
+// =-=-=-=-= MÉTODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
 void insertRootArvoreBinaria(ArvoreBinaria *arvoreBinaria, Aluno *value);
 
@@ -24,7 +24,7 @@ Node *removeNodeTwoChildrenArvoreBinaria(Node *node, char *key);
 
 void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source);
 
-// =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
+// =-=-=-=-= MÉTODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
 /*
  * Insere um registro na raiz de uma ArvoreBinaria
@@ -34,7 +34,7 @@ void insertRootArvoreBinaria(ArvoreBinaria *arvoreBinaria, Aluno *value) {
 }
 
 /*
- * Verifica se um valor deve ser inserido a esquerda ou a direita de um Node
+ * Verifica se um valor deve ser inserido a esquerda ou à direita de um Node
  * */
 Node *insertNodeArvoreBinaria(Node *node, Aluno *value) {
     int compare = compareNodeByValue(node, value);
@@ -89,7 +89,7 @@ Node *removeNodeArvoreBinaria(Node *node, char *key) {
 }
 
 /*
- * Apaga um Node que não possua qualquer filho
+ * Apaga um Node que não possua nenhum filho
  * */
 Node *removeNodeZeroChildrenArvoreBinaria(Node *node) {
     free(node);
@@ -126,7 +126,7 @@ Node *removeNodeTwoChildrenArvoreBinaria(Node *node, char *key) {
 }
 
 /*
- * Insere o valor de um Node e de seus filhos numa ArvoreBinaria.
+ * Insere o valor de um Node e dos seus filhos numa ArvoreBinaria.
  * */
 void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source) {
     if (source == NULL) {
@@ -138,7 +138,7 @@ void cloneNodeIntoArvoreBinaria(ArvoreBinaria *target, Node *source) {
     cloneNodeIntoArvoreBinaria(target, source->right);
 }
 
-// =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
+// =-=-=-=-= MÉTODOS PÚBLICOS =-=-=-=-=
 
 /*
  * Inicializa e retorna uma nova instância de ArvoreBinaria.
@@ -184,8 +184,8 @@ Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
 /*
  * Busca um registro na ArvoreBinaria e imprime os seguintes dados sobre ele:
  *
- * - Os dados do registro;
- * - O número de registros que foram veríficados antes do alvo ser encontrado.
+ * — Os dados do registro;
+ * — O número de registros que foram verificados antes de o alvo ser encontrado.
  * */
 void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
     if (arvoreBinaria->root == NULL) {
@@ -207,9 +207,9 @@ void removeArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
 }
 
 /*
- * Calcula e retorna a altura de uma ArvoreBinaria com base no seus filho.
+ * Calcula e retorna a altura de uma ArvoreBinaria com base nos seus filhos.
  * O valor inicial é 0, então uma ArvoreBinaria com apenas um Node retornará 0.
- * Caso a ArvoreBinaria não possua qualquer registro, retorna -1
+ * Caso a ArvoreBinaria não possua nenhum registro, retorna -1.
  * */
 int getHeightArvoreBinaria(ArvoreBinaria *arvoreBinaria) {
     if (arvoreBinaria->root == NULL) {

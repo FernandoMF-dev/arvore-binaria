@@ -50,6 +50,7 @@ int main() {
                 scanf(" %[^\n]s", key);
                 printf("\nSAÍDA: ");
                 findAndPrintArvoreAvl(arvoreAvl, key);
+                printf("\n");
                 findAndPrintArvoreBinaria(arvoreBinaria, key);
                 break;
             case 3:
@@ -60,6 +61,7 @@ int main() {
                 break;
             case 4:
                 printStatisticsArvoreAvl(arvoreAvl);
+                printf("\n");
                 printStatisticsArvoreBinaria(arvoreBinaria);
                 break;
             default:
@@ -68,6 +70,8 @@ int main() {
     }
 
     clearArvoreAvl(arvoreAvl);
+    clearArvoreBinaria(arvoreBinaria);
     free(arvoreAvl);
+    free(arvoreBinaria);
     return 0;
 }

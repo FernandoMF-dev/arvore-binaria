@@ -6,7 +6,7 @@
 #define ERROR_ARVORE_VAZIA "\n\tERRO: A ArvoreAvl está vazia!\n"
 #define ERROR_REGISTRO_NAO_ENCONTRADO "\n\tERRO: Registro não encontrado!\n"
 
-// =-=-=-=-= METODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
+// =-=-=-=-= MÉTODOS PRIVADOS | DECLARAÇÃO =-=-=-=-=
 
 Node *rotateRight(Node *node);
 
@@ -40,8 +40,11 @@ Node *removeNodeTwoChildrenArvoreAvl(Node *node, char *key);
 
 void cloneNodeIntoArvoreAvl(ArvoreAvl *target, Node *source);
 
-// =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
+// =-=-=-=-= MÉTODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
+/*
+ * Retorna um Node rotacionado em sentido 'Horário'
+ * */
 Node *rotateRight(Node *node) {
     Node *aux = node->left;
 
@@ -52,6 +55,9 @@ Node *rotateRight(Node *node) {
     return aux;
 }
 
+/*
+ * Retorna um Node rotacionado em sentido 'Anti-Horário'
+ * */
 Node *rotateLeft(Node *node) {
     Node *aux = node->right;
 
@@ -62,16 +68,25 @@ Node *rotateLeft(Node *node) {
     return aux;
 }
 
+/*
+ * Retorna um Node rotacionado em sentido 'Horário' e depois 'Anti-Horário'
+ * */
 Node *rotateRightLeft(Node *node) {
     node->right = rotateRight(node->right);
     return rotateLeft(node);
 }
 
+/*
+ * Retorna um Node rotacionado em sentido 'Anti-Horário' e depois 'Horário'
+ * */
 Node *rotateLeftRight(Node *node) {
     node->left = rotateLeft(node->left);
     return rotateRight(node);
 }
 
+/*
+ * Retorna um Node balanceado após uma inserção na esquerda
+ * */
 Node *insertBalanceAvlLeft(Node *node) {
     updateChildrenHeightNode(node);
 
@@ -87,6 +102,9 @@ Node *insertBalanceAvlLeft(Node *node) {
     return node;
 }
 
+/*
+ * Retorna um Node balanceado após uma inserção na direita
+ * */
 Node *insertBalanceAvlRight(Node *node) {
     updateChildrenHeightNode(node);
 
@@ -102,6 +120,9 @@ Node *insertBalanceAvlRight(Node *node) {
     return node;
 }
 
+/*
+ * Retorna um Node balanceado após uma remoção na esquerda
+ * */
 Node *removeBalanceAvlLeft(Node *node) {
     updateChildrenHeightNode(node);
 
@@ -117,6 +138,9 @@ Node *removeBalanceAvlLeft(Node *node) {
     return node;
 }
 
+/*
+ * Retorna um Node balanceado após uma remoção na direita
+ * */
 Node *removeBalanceAvlRight(Node *node) {
     updateChildrenHeightNode(node);
 
@@ -140,7 +164,7 @@ void insertRootArvoreAvl(ArvoreAvl *arvoreAvl, Aluno *value) {
 }
 
 /*
- * Verifica se um valor deve ser inserido a esquerda ou a direita de um Node
+ * Verifica se um valor deve ser inserido a esquerda ou à direita de um Node
  * */
 Node *insertNodeArvoreAvl(Node *node, Aluno *value) {
     int compare = compareNodeByValue(node, value);
@@ -201,7 +225,7 @@ Node *removeNodeArvoreAvl(Node *node, char *key) {
 }
 
 /*
- * Apaga um Node que não possua qualquer filho
+ * Apaga um Node que não possua nenhum filho
  * */
 Node *removeNodeZeroChildrenArvoreAvl(Node *node) {
     free(node);
@@ -238,7 +262,7 @@ Node *removeNodeTwoChildrenArvoreAvl(Node *node, char *key) {
 }
 
 /*
- * Insere o valor de um Node e de seus filhos numa ArvoreAvl.
+ * Insere o valor de um Node e dos seus filhos numa ArvoreAvl.
  * */
 void cloneNodeIntoArvoreAvl(ArvoreAvl *target, Node *source) {
     if (source == NULL) {
@@ -250,7 +274,7 @@ void cloneNodeIntoArvoreAvl(ArvoreAvl *target, Node *source) {
     cloneNodeIntoArvoreAvl(target, source->right);
 }
 
-// =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
+// =-=-=-=-= MÉTODOS PÚBLICOS =-=-=-=-=
 
 /*
  * Inicializa e retorna uma nova instância de ArvoreAvl.
@@ -296,10 +320,11 @@ Aluno *searchArvoreAvl(ArvoreAvl *arvoreAvl, char *key) {
 /*
  * Busca um registro na ArvoreAvl e imprime os seguintes dados sobre ele:
  *
- * - Os dados do registro;
- * - O número de registros que foram veríficados antes do alvo ser encontrado.
+ * — Os dados do registro;
+ * — O número de registros que foram verificados antes de o alvo ser encontrado.
  * */
 void findAndPrintArvoreAvl(ArvoreAvl *arvoreAvl, char *key) {
+    printf("\n%s\n", arvoreAvl->label);
     if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
         return;
@@ -319,9 +344,9 @@ void removeArvoreAvl(ArvoreAvl *arvoreAvl, char *key) {
 }
 
 /*
- * Calcula e retorna a altura de uma ArvoreAvl com base no seus filho.
+ * Calcula e retorna a altura de uma ArvoreAvl com base nos seus filhos.
  * O valor inicial é 0, então uma ArvoreAvl com apenas um Node retornará 0.
- * Caso a ArvoreAvl não possua qualquer registro, retorna -1
+ * Caso a ArvoreAvl não possua nenhum registro, retorna -1
  * */
 int getHeightArvoreAvl(ArvoreAvl *arvoreAvl) {
     if (arvoreAvl->root == NULL) {

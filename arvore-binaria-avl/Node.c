@@ -11,6 +11,10 @@ int getHeightNode(Node *node);
 
 // =-=-=-=-= METODOS PRIVADOS | IMPLEMENTAÇÃO =-=-=-=-=
 
+/*
+ * Retorna a altura de um Node.
+ * Se o Node for nulo, retorna -1.
+ * */
 int getHeightNode(Node *node) {
     if (node == NULL) {
         return -1;
@@ -64,18 +68,18 @@ int compareNode(Node *node1, Node *node2) {
 }
 
 /*
- * Compara se um valor (value) corresponde a ao registro em um node.
+ * Compara se um valor (value) corresponde ao valor guardado num Node.
  *
  * Se sim, retorna 0.
- * Se o node for maior, retorna um inteiro maior que 0.
- * Se o node for menor, retorna um inteiro menor que 0.
+ * Se o Node for maior, retorna um inteiro maior que 0.
+ * Se o Node for menor, retorna um inteiro menor que 0.
  * */
 int compareNodeByValue(Node *node, Aluno *value) {
     return compareAluno(node->value, value);
 }
 
 /*
- * Compara se uma chave (key) corresponde a ao registro em um node.
+ * Compara se uma chave (key) corresponde ao valor guardado num Node.
  *
  * Se sim, retorna 0.
  * Se a chave for maior, retorna um inteiro maior que 0.
@@ -110,8 +114,8 @@ Aluno *searchNode(Node *node, char *key) {
 /*
  * Busca um registro em um node e nos seus filhos e imprime:
  *
- * - Os dados do registro;
- * - O número de registros que foram verificados antes de o alvo ser encontrado.
+ * — Os dados do registro;
+ * — O número de registros que foram verificados antes de o alvo ser encontrado.
  * */
 void findAndPrintNode(Node *node, char *key, int counter) {
     if (node != NULL) {
@@ -134,12 +138,11 @@ void findAndPrintNode(Node *node, char *key, int counter) {
  * Imprime um Node
  * */
 void printNode(Node *node) {
-    printf("[%d | %d]", getChargeFactorNode(node), node->height);
     printAluno(node->value);
 }
 
 /*
- * Calcula e retorna a altura de um Node com base no seus filho.
+ * Calcula e retorna a altura de um Node com base na dos seus filhos.
  * O valor inicial é 0, então um Node sem filhos retornará 0.
  * Caso o Node seja nulo, retorna -1
  * */
@@ -153,7 +156,7 @@ int findHeightNode(Node *node) {
 
 /*
  * Calcula e retorna a quantidade de nodes que caracterizam um Node.
- * Esse calculo incluí o pŕoprio Node, então um Node sem filhos retorna 1.
+ * Esse calculo incluí o próprio Node, então um Node sem filhos retorna 1.
  * Caso o Node seja nulo, retorna 0
  * */
 int getSizeNode(Node *node) {
@@ -169,7 +172,7 @@ int getSizeNode(Node *node) {
 }
 
 /*
- * Busca e retorna o maior valor numa sub árvore
+ * Busca e retorna o maior valor dentre os filhos de um Node.
  * */
 Aluno *getMaxNode(Node *node) {
     if (node->right == NULL) {
@@ -179,7 +182,7 @@ Aluno *getMaxNode(Node *node) {
 }
 
 /*
- * Busca e retorna o menor valor numa sub árvore
+ * Busca e retorna o menor valor dentre os filhos de um Node.
  * */
 Aluno *getMinNode(Node *node) {
     if (node->left == NULL) {
@@ -189,14 +192,14 @@ Aluno *getMinNode(Node *node) {
 }
 
 /*
- * retorna o fator carga de um Node
+ * Calcula e retorna o fator carga de um Node
  * */
 int getChargeFactorNode(Node *node) {
     return getHeightNode(node->left) - getHeightNode(node->right);
 }
 
 /*
- * Atualiza o fator carga de todos os Nodes e todos os seus descendentes
+ * Atualiza o fator carga de todos os Nodes e todos os seus descendentes.
  * */
 void updateAllHeightNode(Node *node) {
     if (node == NULL) {
@@ -214,7 +217,7 @@ void updateAllHeightNode(Node *node) {
 }
 
 /*
- * Atualiza a altura de um Node e os dos seus filhos
+ * Atualiza a altura de um Node e os dos seus filhos.
  * */
 void updateChildrenHeightNode(Node *node) {
     if (node == NULL) {
@@ -227,7 +230,7 @@ void updateChildrenHeightNode(Node *node) {
 }
 
 /*
- * Atualiza a altura de um Node
+ * Atualiza a altura de um Node.
  * */
 void updateHeightNode(Node *node) {
     if (node == NULL) {
@@ -251,7 +254,7 @@ void clearNode(Node *node) {
 }
 
 /*
- * Imprime o valor de um Node e de seus filhos
+ * Imprime o valor de um Node e dos seus filhos
  * Segue a ordenação "Em-Ordem Crescente"
  * */
 void printNodeInOrderAsc(Node *node) {
@@ -266,7 +269,7 @@ void printNodeInOrderAsc(Node *node) {
 }
 
 /*
- * Imprime o valor de um Node e de seus filhos
+ * Imprime o valor de um Node e dos seus filhos
  * Segue a ordenação "Em-Ordem Decrescente"
  * */
 void printNodeInOrderDesc(Node *node) {
@@ -281,7 +284,7 @@ void printNodeInOrderDesc(Node *node) {
 }
 
 /*
- * Imprime o valor de um Node e de seus filhos
+ * Imprime o valor de um Node e dos seus filhos
  * Segue a ordenação "Pré-Ordem"
  * */
 void printNodePreOrder(Node *node) {
@@ -296,7 +299,7 @@ void printNodePreOrder(Node *node) {
 }
 
 /*
- * Imprime o valor de um Node e de seus filhos
+ * Imprime o valor de um Node e dos seus filhos
  * Segue a ordenação "Pós-Ordem"
  * */
 void printNodePostOrder(Node *node) {
