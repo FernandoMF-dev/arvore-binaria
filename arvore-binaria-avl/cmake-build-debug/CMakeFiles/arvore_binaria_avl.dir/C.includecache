@@ -6,6 +6,30 @@
 
 #IncludeRegexTransform: 
 
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Aluno.c
+headers/Aluno.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreAvl.c
+headers/ArvoreAvl.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreAvl.h
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ArvoreBinaria.c
+headers/ArvoreBinaria.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/ControleArquivoAluno.c
+headers/ControleArquivoAluno.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ControleArquivoAluno.h
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/FuncaoUtils.c
+headers/FuncaoUtils.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/FuncaoUtils.h
+
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/Node.c
+headers/Node.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Node.h
+
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
 stdio.h
 -
@@ -71,6 +95,8 @@ stdio.h
 -
 headers/Aluno.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/Aluno.h
+headers/ArvoreBinaria.h
+/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreBinaria.h
 headers/ArvoreAvl.h
 /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/headers/ArvoreAvl.h
 headers/ControleArquivoAluno.h

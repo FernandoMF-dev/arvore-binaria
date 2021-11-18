@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "headers/Aluno.h"
+#include "headers/ArvoreBinaria.h"
 #include "headers/ArvoreAvl.h"
 #include "headers/ControleArquivoAluno.h"
 

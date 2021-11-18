@@ -5,7 +5,7 @@
 #define MATRICULA_MAX_LENGTH 15
 #define NOME_MAX_LENGTH 255
 
-// =-=-=-=-= METODOS PUBLICOS =-=-=-=-=
+// =-=-=-=-= MÉTODOS PÚBLICOS =-=-=-=-=
 
 /*
  * Cria e retorna uma nova instância vazia de Aluno
