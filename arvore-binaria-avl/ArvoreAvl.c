@@ -352,7 +352,8 @@ int getHeightArvoreAvl(ArvoreAvl *arvoreAvl) {
     if (arvoreAvl->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
     }
-    return findHeightNode(arvoreAvl->root);
+    updateChildrenHeightNode(arvoreAvl->root);
+    return arvoreAvl->root->height;
 }
 
 /*
