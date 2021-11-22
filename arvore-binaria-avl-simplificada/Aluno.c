@@ -59,7 +59,7 @@ int compareAlunoByKey(Aluno *aluno, char *key) {
  * Se aluno1 for o menor, retorna um inteiro menor que 0.
  * */
 int compareAluno(Aluno *aluno1, Aluno *aluno2) {
-    int result = strcmp(aluno1->matricula, aluno2->matricula);
+    int result = atoi(aluno1->matricula) - atoi(aluno2->matricula);
 
     if (result == 0) {
         result = strcmp(aluno1->nome, aluno2->nome);

@@ -131,7 +131,7 @@ void findAndPrintNode(Node *node, char *key, int counter) {
     } else {
         printf(ERROR_REGISTRO_NAO_ENCONTRADO);
     }
-    printf("\nForam comparados %d registros antes de encontrar esse resultado", counter);
+    printf("\nForam comparados %d registros antes de encontrar esse resultado\n", counter);
 }
 
 /*
@@ -147,11 +147,9 @@ void printNode(Node *node) {
  * Caso o Node seja nulo, retorna -1
  * */
 int findHeightNode(Node *node) {
-    if (node == NULL) {
-        return -1;
-    }
+    updateAllHeightNode(node);
 
-    return getMaxInt(findHeightNode(node->left), findHeightNode(node->right)) + 1;
+    return node->height;
 }
 
 /*

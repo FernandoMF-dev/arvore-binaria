@@ -188,6 +188,7 @@ Aluno *searchArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
  * — O número de registros que foram verificados antes de o alvo ser encontrado.
  * */
 void findAndPrintArvoreBinaria(ArvoreBinaria *arvoreBinaria, char *key) {
+    printf("\n%s\n", arvoreBinaria->label);
     if (arvoreBinaria->root == NULL) {
         printf(ERROR_ARVORE_VAZIA);
         return;
