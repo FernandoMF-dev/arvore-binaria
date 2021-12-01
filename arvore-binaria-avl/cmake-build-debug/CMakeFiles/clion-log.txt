@@ -1,4 +1,12 @@
-/home/basis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl"
+CMake File API: can not create 'codemodel-v2' query: 'Cannot create file /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/.cmake/api/v1/query/codemodel-v2'
+/home/basis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl"
+-- The C compiler identification is GNU 9.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc - works
+-- Detecting C compile features
+-- Detecting C compile features - done
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug

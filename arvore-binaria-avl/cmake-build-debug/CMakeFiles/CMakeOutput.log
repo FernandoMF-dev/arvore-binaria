@@ -214,3 +214,45 @@ Parsed C implicit link information from above output:
   implicit fwks: []
 
 
+The system is: Linux - 5.11.0-41-generic - x86_64
+The system is: Linux - 5.11.0-41-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out"
+
+The C compiler identification is GNU, found in "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_613bf/fast && /usr/bin/make  -f CMakeFiles/cmTC_613bf.dir/build.make CMakeFiles/cmTC_613bf.dir/build
+make[1]: Entrando no diretório '/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_613bf.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_613bf.dir/testCCompiler.c.o -c "/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c"
+Linking C executable cmTC_613bf
+/home/basis/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_613bf.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_613bf.dir/testCCompiler.c.o -o cmTC_613bf 
+make[1]: Saindo do diretório '/home/basis/Documentos/Arvore Binaria/arvore-binaria-avl/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+

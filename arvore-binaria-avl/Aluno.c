@@ -48,7 +48,7 @@ Aluno *readAluno() {
  * Se a chave for menor, retorna um inteiro menor que 0.
  * */
 int compareAlunoByKey(Aluno *aluno, char *key) {
-    return strcmp(aluno->matricula, key);
+    return atoi(aluno->matricula) - atoi(key);
 }
 
 /*
